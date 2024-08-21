@@ -1,5 +1,6 @@
 const baseImagesPath = "assets/images";
 const baseIconsPath = "assets/icons";
+const baseVectorsPath = "assets/images/vectors";
 
 class AppAssets {
   static const logo = "$baseImagesPath/logo.png";
@@ -9,4 +10,5 @@ class AppAssets {
   static const microphone = "$baseIconsPath/Layer 2.svg";
   static const platformWork = "$baseIconsPath/microphone.svg";
   static const notification = "$baseIconsPath/notification.svg";
+  static const filter = "$baseVectorsPath/Vector.svg";
 }

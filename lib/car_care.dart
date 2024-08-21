@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,11 +15,11 @@ class CarCare extends StatelessWidget {
         BlocProvider<NavigationBarCubit>(
           create: (context) => NavigationBarCubit(),
         ),
-     
-      //  BlocProvider(create: (context) => LocalizationCubit()),
+
+        //  BlocProvider(create: (context) => LocalizationCubit()),
       ],
       child: MaterialApp.router(
-            
+        locale: const Locale('ar'),
         theme: AppStyle.themeData(),
         debugShowCheckedModeBanner: false,
         routerConfig: router,

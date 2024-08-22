@@ -21,6 +21,7 @@ dependencies:
   intl: 
   go_router: 
   flutter_svg: 
+  flutter_staggered_grid_view:
  
 
 

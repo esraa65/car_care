@@ -1,6 +1,7 @@
 import 'package:car_care/core/constants/app_colors.dart';
 import 'package:car_care/presentation/cubit/navigation_bar/cubit/navigation_bar_cubit.dart';
 import 'package:car_care/presentation/view/home/home_page.dart';
+import 'package:car_care/presentation/view/workshop/workshop_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,7 +11,7 @@ class LayoutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<Widget> pages = [
-      const HomePage(),
+      const WorkshopView(),
       const HomePage(),
     ];
     return Scaffold(body: BlocBuilder<NavigationBarCubit, int>(

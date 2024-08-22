@@ -8,6 +8,7 @@ class WhiteContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+        padding: const EdgeInsets.all(16),
         width: MediaQuery.sizeOf(context).width,
         height: MediaQuery.sizeOf(context).height * 0.15,
         decoration: BoxDecoration(

@@ -22,4 +22,6 @@ class AppColors {
   static const Color grey4B = Color(0xff4B4B4B);
   static const Color primary = Color(0xff2CB4B7);
 
+  //! Kareem
+  static const Color greyE2 = Color(0xffE2E2E2);
 }

@@ -1,14 +1,17 @@
-
 import 'package:car_care/app/routing/routes.dart';
+import 'package:car_care/presentation/view/Car_Care/car_care_screen.dart';
 import 'package:car_care/presentation/view/layout/layout.dart';
 import 'package:car_care/presentation/view/workshop/workshop_view.dart';
 import 'package:go_router/go_router.dart';
-
 
 final GoRouter router = GoRouter(
   routes: [
     GoRoute(
       path: '/',
+      builder: (context, state) => const CarCareScreen(),
+    ),
+    GoRoute(
+      path: '/layout',
       name: Routes.layout,
       builder: (context, state) => const LayoutPage(),
     ),
@@ -17,6 +20,5 @@ final GoRouter router = GoRouter(
       name: Routes.workShop,
       builder: (context, state) => const WorkshopView(),
     ),
-   
   ],
 );

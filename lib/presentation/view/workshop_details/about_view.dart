@@ -1,6 +1,6 @@
 import 'package:car_care/core/constants/app_colors.dart';
 import 'package:car_care/presentation/widget/custom/default_text.dart';
-import 'package:car_care/presentation/widget/workshop_details/Icon_with_container.dart';
+import 'package:car_care/presentation/widget/workshop_details/icon_with_container.dart';
 import 'package:flutter/material.dart';
 
 class AboutView extends StatelessWidget {
@@ -8,7 +8,7 @@ class AboutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return Padding(
       padding: const EdgeInsets.all(16),
       child: Column(
         children: [

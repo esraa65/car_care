@@ -29,7 +29,7 @@ class DefaultText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      textAlign: isCenter ? TextAlign.center : TextAlign.right,
+      //textAlign: isCenter ? TextAlign.center : TextAlign.right,
       overflow: textOverflow,
       maxLines: maxLines,
       style: TextStyle(

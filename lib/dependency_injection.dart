@@ -2,6 +2,11 @@ import 'package:car_care/core/constants/end_point.dart';
 import 'package:car_care/core/network/dio/base_dio.dart';
 import 'package:car_care/core/network/dio/dio_client.dart';
 import 'package:car_care/core/network/dio/dio_interceptor.dart';
+import 'package:car_care/data/repo/car_care/car_care_repo_impl.dart';
+import 'package:car_care/data/source/source_base/car_care/car_care_source.dart';
+import 'package:car_care/data/source/source_impl/car_car/car_care_source_impl.dart';
+import 'package:car_care/domain/repo/car_car/car_car_repo.dart';
+import 'package:car_care/presentation/cubit/car_care_cubit/car_care_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -42,8 +47,14 @@ Future<void> _registerSingletons() async {
   getIt.registerSingleton<SharedPreferences>(preferences);
 }
 
-void _registerDataSources() {}
+void _registerDataSources() {
+  getIt.registerSingleton<CarCareSource>(CarCareSourceImpl(getIt()));
+}
 
-void _registerRepos() {}
+void _registerRepos() {
+  getIt.registerSingleton<CarCareRepo>(CarCareRepoImpl(getIt()));
+}
 
-void _registerFactory() {}
+void _registerFactory() {
+  getIt.registerFactory<CarCareCubit>(() => CarCareCubit(getIt()));
+}

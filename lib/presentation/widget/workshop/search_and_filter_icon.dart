@@ -26,7 +26,7 @@ class SearchAndFilterIcon extends StatelessWidget {
                       color: AppColors.greyF2,
                       spreadRadius: 6,
                       blurRadius: 9,
-                      offset: const Offset(0, 9), // changes position of shadow
+                      offset: Offset(0, 9), // changes position of shadow
                     ),
                   ]),
               child: SvgPicture.asset(AppAssets.filter)),
@@ -36,7 +36,7 @@ class SearchAndFilterIcon extends StatelessWidget {
                 controller: TextEditingController(),
                 hintText: 'بحث',
                 borderColor: AppColors.white,
-                suffixIcon: Icon(Icons.search),
+                suffixIcon: const Icon(Icons.search),
               )),
         ],
       ),

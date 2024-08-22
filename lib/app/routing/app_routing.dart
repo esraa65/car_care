@@ -1,9 +1,8 @@
-
 import 'package:car_care/app/routing/routes.dart';
 import 'package:car_care/presentation/view/layout/layout.dart';
 import 'package:car_care/presentation/view/workshop/workshop_view.dart';
+import 'package:car_care/presentation/view/workshop_details/workshop_details_view.dart';
 import 'package:go_router/go_router.dart';
-
 
 final GoRouter router = GoRouter(
   routes: [
@@ -17,6 +16,10 @@ final GoRouter router = GoRouter(
       name: Routes.workShop,
       builder: (context, state) => const WorkshopView(),
     ),
-   
+    GoRoute(
+      path: '/workshopDetailsView',
+      name: Routes.workshopDetailsView,
+      builder: (context, state) => const WorkshopDetailsView(),
+    ),
   ],
 );

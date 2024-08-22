@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
         body: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 25),
+            padding:  EdgeInsets.symmetric(horizontal: 16, vertical: 25),
             child: Column(
               children: [Text('home Screen')],
             )));

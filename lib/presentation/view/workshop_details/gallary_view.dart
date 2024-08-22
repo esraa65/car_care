@@ -12,6 +12,15 @@ class GalleryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> imageUrls = [
+      'https://via.placeholder.com/150',
+      'https://via.placeholder.com/150',
+      'https://via.placeholder.com/150',
+      'https://via.placeholder.com/150',
+      'https://via.placeholder.com/150',
+      'https://via.placeholder.com/150',
+      // Add more URLs here
+    ];
     return SizedBox(
       child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -20,41 +29,48 @@ class GalleryWidget extends StatelessWidget {
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(children: [
-                  DefaultText(
-                    text: "gallery",
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                    color: AppColors.grey4B,
-                  ),
-                  DefaultText(
-                    text: " (${2})",
-                    color: AppColors.primary,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                  ),
-                ])
+                DefaultText(
+                  text: "viewAll",
+                  color: AppColors.grey4B,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(children: [
+                      DefaultText(
+                        text: "صورة",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: AppColors.grey4B,
+                      ),
+                      DefaultText(
+                        text: " (${2})",
+                        color: AppColors.primary,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ])
+                  ],
+                ),
               ],
             ),
-            const DefaultText(
-              text: "viewAll",
-              color: AppColors.grey4B,
-              fontWeight: FontWeight.bold,
-              fontSize: 17,
-            ),
-            AlignedGridView.count(
-              crossAxisCount: 3, // Adjust the number of columns as needed
-              crossAxisSpacing: 16, // Spacing between columns
-              mainAxisSpacing: 16, // Spacing between rows
-              itemCount: 2,
-              itemBuilder: (context, index) => ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: Image.network(
-                  "",
-                  fit: BoxFit.cover,
-                ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.3,
+              child: AlignedGridView.count(
+                itemCount: imageUrls.length,
+                shrinkWrap: true,
+                crossAxisCount: 3,
+                crossAxisSpacing: 12,
+                mainAxisSpacing: 12,
+                itemBuilder: (context, index) {
+                  return ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.network(imageUrls[index]));
+                },
               ),
-            ),
+            )
           ])),
     );
   }

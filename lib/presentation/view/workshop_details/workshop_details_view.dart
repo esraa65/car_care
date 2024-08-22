@@ -3,7 +3,6 @@ import 'package:car_care/presentation/view/workshop_details/about_view.dart';
 import 'package:car_care/presentation/view/workshop_details/gallary_view.dart';
 import 'package:car_care/presentation/view/workshop_details/rating_view.dart';
 import 'package:car_care/presentation/view/workshop_details/services_view.dart';
-import 'package:car_care/presentation/widget/custom/default_text.dart';
 import 'package:car_care/presentation/widget/workshop_details/image_stack_widget.dart';
 import 'package:car_care/presentation/widget/workshop_details/workshop_row_data_widget.dart';
 import 'package:flutter/material.dart';
@@ -54,33 +53,6 @@ class WorkshopDetailsView extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class ServiceCheckbox extends StatelessWidget {
-  final String title;
-  final String price;
-  final bool value;
-  final ValueChanged<bool?> onChanged;
-
-  const ServiceCheckbox({
-    super.key,
-    required this.title,
-    required this.price,
-    required this.value,
-    required this.onChanged,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return CheckboxListTile(
-      title: DefaultText(text: title),
-      subtitle: DefaultText(text: price),
-      value: value,
-      onChanged: onChanged,
-      controlAffinity: ListTileControlAffinity.leading,
-      activeColor: AppColors.primary,
     );
   }
 }

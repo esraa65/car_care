@@ -10,8 +10,6 @@ class GalleryWidget extends StatelessWidget {
     super.key,
   });
 
-
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -19,7 +17,7 @@ class GalleryWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Column(children: [
             height(10),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(children: [
@@ -38,7 +36,7 @@ class GalleryWidget extends StatelessWidget {
                 ])
               ],
             ),
-            DefaultText(
+            const DefaultText(
               text: "viewAll",
               color: AppColors.grey4B,
               fontWeight: FontWeight.bold,
@@ -52,8 +50,8 @@ class GalleryWidget extends StatelessWidget {
               itemBuilder: (context, index) => ClipRRect(
                 borderRadius: BorderRadius.circular(12),
                 child: Image.network(
-                "",
-                  fit: BoxFit.cover, // Ensure the image covers the area
+                  "",
+                  fit: BoxFit.cover,
                 ),
               ),
             ),

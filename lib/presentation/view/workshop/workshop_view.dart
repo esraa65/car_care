@@ -43,7 +43,6 @@ class WorkshopView extends StatelessWidget {
                 color: AppColors.grey4B,
                 fontWeight: FontWeight.bold),
           ),
-          const SizedBox(height: 6),
           const WorkshopListView(),
           const SizedBox(height: 16),
           WhiteContainer(

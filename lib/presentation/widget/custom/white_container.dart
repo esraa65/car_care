@@ -9,7 +9,7 @@ class WhiteContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         width: MediaQuery.sizeOf(context).width,
-        height: MediaQuery.sizeOf(context).height * 0.15,
+        height: MediaQuery.sizeOf(context).height * 0.11,
         decoration: BoxDecoration(
           color: AppColors.white,
           borderRadius: BorderRadius.circular(12),

@@ -15,7 +15,7 @@ class WorkshopListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return Container(
             padding: const EdgeInsets.all(8),
-            margin: const EdgeInsets.all(14),
+            margin: const EdgeInsets.only(bottom: 12,right: 12,left: 12),
             decoration: BoxDecoration(
               color: AppColors.white,
               borderRadius: BorderRadius.circular(16),

@@ -19,7 +19,6 @@ class CarCare extends StatelessWidget {
         //  BlocProvider(create: (context) => LocalizationCubit()),
       ],
       child: MaterialApp.router(
-        locale: const Locale('ar'),
         theme: AppStyle.themeData(),
         debugShowCheckedModeBanner: false,
         routerConfig: router,

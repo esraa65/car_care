@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import '../../../core/constants/app_colors.dart';
+import 'package:car_care/core/constants/app_colors.dart';
 
-class IconWithContainer extends StatelessWidget {
+class IconWithContainerWidget extends StatelessWidget {
   final IconData icon;
   final void Function() onPressed;
-  const IconWithContainer(
+  const IconWithContainerWidget(
       {super.key, required this.icon, required this.onPressed});
 
   @override

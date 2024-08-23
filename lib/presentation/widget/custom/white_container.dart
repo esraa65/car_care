@@ -10,7 +10,7 @@ class WhiteContainer extends StatelessWidget {
     return Container(
         padding: const EdgeInsets.all(16),
         width: MediaQuery.sizeOf(context).width,
-        height: MediaQuery.sizeOf(context).height * 0.15,
+        height: MediaQuery.sizeOf(context).height * 0.11,
         decoration: BoxDecoration(
           color: AppColors.white,
           borderRadius: BorderRadius.circular(12),

@@ -1,6 +1,6 @@
 import 'package:car_care/core/constants/app_colors.dart';
 import 'package:car_care/presentation/widget/custom/default_text.dart';
-import 'package:car_care/presentation/widget/workshop_details/icon_with_container.dart';
+import 'package:car_care/presentation/widget/workshop_details/icon_with_container_widget.dart';
 import 'package:flutter/material.dart';
 
 class AboutView extends StatelessWidget {
@@ -22,14 +22,14 @@ class AboutView extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              IconWithContainer(
+              IconWithContainerWidget(
                 icon: Icons.messenger_sharp,
                 onPressed: () {},
               ),
               const SizedBox(
                 width: 10,
               ),
-              IconWithContainer(
+              IconWithContainerWidget(
                 icon: Icons.call,
                 onPressed: () {},
               )

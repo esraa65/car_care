@@ -24,4 +24,6 @@ class AppColors {
   static const Color orange= Color(0xffF9530C);
 
 
+  //! Kareem
+  static const Color greyE2 = Color(0xffE2E2E2);
 }

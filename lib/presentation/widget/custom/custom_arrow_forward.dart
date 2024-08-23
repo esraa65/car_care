@@ -8,11 +8,18 @@ class CustomArrowBack extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(4),
-      decoration: BoxDecoration(
-          shape: BoxShape.circle, border: Border.all(color: AppColors.greyE0)),
-      child:
-          IconButton(onPressed: onPressed, icon: const Icon(Icons.arrow_back)),
+      margin: const EdgeInsets.all(6),
+      decoration: const BoxDecoration(
+        color: AppColors.primary,
+        shape: BoxShape.circle,
+      ),
+      child: IconButton(
+        onPressed: onPressed,
+        icon: const Icon(
+          Icons.arrow_forward_rounded,
+          color: AppColors.white,
+        ),
+      ),
     );
   }
 }

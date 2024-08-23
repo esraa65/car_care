@@ -38,9 +38,11 @@ class DefaultButton extends StatelessWidget {
       height: height,
       width: width,
       decoration: BoxDecoration(
-          color: containerColor ?? AppColors.blue,
+          color: containerColor ?? AppColors.primary,
           borderRadius: BorderRadius.circular(radius ?? 24),
-          border: Border.all(color: borderColor ?? AppColors.white)),
+          border: Border.all(
+            color: borderColor ?? AppColors.white,
+          )),
       child: TextButton(
         onPressed: onPressed,
         child: loading

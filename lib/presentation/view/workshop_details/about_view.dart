@@ -8,7 +8,7 @@ class AboutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return Padding(
       padding: const EdgeInsets.all(16),
       child: Column(
         children: [

@@ -8,4 +8,5 @@ class AppAssets {
   //!kareem
   static const car = "$baseVectorsPath/car.svg";
   static const carDoor = "$baseVectorsPath/car_door.svg";
+  static const location = "$baseVectorsPath/location.svg";
 }

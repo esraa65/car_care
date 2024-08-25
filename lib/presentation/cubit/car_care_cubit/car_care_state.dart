@@ -17,7 +17,7 @@ class ChangeCheckBoxState extends CarCareState {}
 final class CarCareLoadingState extends CarCareState {}
 
 final class CarCareSuccessState extends CarCareState {
-  final ServiceEntity serviceEntity;
+  final List<ServiceEntity> serviceEntity;
   const CarCareSuccessState({required this.serviceEntity});
 
   @override

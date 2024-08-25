@@ -9,16 +9,23 @@ class CarCareRepoImpl implements CarCareRepo {
 
   CarCareRepoImpl(this.careSource);
   @override
-  Future<Either<Failure, ServiceEntity>> service() async {
+  Future<Either<Failure, List<ServiceEntity>>> service() async {
     try {
       final response = await careSource.service();
-      if (!(response['status'] as bool)) {
+      if (!(response['success'] as bool)) {
         return Left(ServerFailure(response['message'] as String));
       }
-      return Right(
-          ServiceEntity.fromJson(response['data'] as Map<String, dynamic>));
+
+      final List<dynamic> dataList = response['data'] as List<dynamic>;
+      final List<ServiceEntity> services = dataList
+          .map((json) => ServiceEntity.fromJson(json as Map<String, dynamic>))
+          .toList();
+
+      return Right(services);
     } catch (e) {
-      return Left(ServerFailure(e.toString()));
+      return Left(
+        ServerFailure(e.toString()),
+      );
     }
   }
 }

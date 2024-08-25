@@ -1,7 +1,7 @@
 import 'dart:developer';
 
-import 'package:car_care/core/constants/app_shared_prefrences_keys.dart';
-import 'package:car_care/dependency_injection.dart';
+// import 'package:car_care/core/constants/app_shared_prefrences_keys.dart';
+// import 'package:car_care/dependency_injection.dart';
 import 'package:dio/dio.dart';
 
 class DioInterceptor implements Interceptor {
@@ -14,7 +14,7 @@ class DioInterceptor implements Interceptor {
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    final token = preferences.getString(AppSharedPrefrenceKeys.token);
+    final token = "757|bElKh6OdJQDhgLxhL8QOng2EeQRBpyHp6zMCNr74a2904880";
     options.headers["Authorization"] = "Bearer $token";
     log("=======================================");
     log("Request");

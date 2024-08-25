@@ -1,5 +1,7 @@
+import 'package:car_care/app/routing/routes.dart';
 import 'package:car_care/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SwitchWidget extends StatefulWidget {
   final bool initialValue;
@@ -43,20 +45,26 @@ class _SwitchWidgetState extends State<SwitchWidget> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.map_outlined,
+            IconButton(
+              iconSize: 30,
+              icon: const Icon(Icons.map_outlined),
               color: !_isIcon1Selected ? Colors.blue : Colors.grey,
-              size: 30,
+              onPressed: () {
+                context.pushNamed(Routes.workshopOnMapView);
+              },
             ),
             const SizedBox(width: 16),
             Container(
-              padding: const EdgeInsets.all(4),
+              // padding: const EdgeInsets.all(6),
               decoration: const BoxDecoration(
                   shape: BoxShape.circle, color: AppColors.white),
-              child: Icon(
-                Icons.list_outlined,
+              child: IconButton(
+                iconSize: 30,
+                icon: const Icon(Icons.list_outlined),
                 color: _isIcon1Selected ? Colors.blue : Colors.grey,
-                size: 30,
+                onPressed: () {
+                  context.pushNamed(Routes.workShop);
+                },
               ),
             ),
           ],

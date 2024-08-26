@@ -19,11 +19,13 @@ dependencies:
   flutter_map: ^7.0.2
   flutter_staggered_grid_view: null
   flutter_svg: null
+  geocoding: ^3.0.0
+  geolocator: ^12.0.0
   get_it: null
   go_router: null
   intl: null
   latlong2: ^0.9.1
-  location: ^7.0.0
+  location: ^6.0.2
   shared_preferences: null
 
 dev_dependencies:

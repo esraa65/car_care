@@ -2,25 +2,29 @@ import 'package:car_care/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomSearchBar extends StatelessWidget {
-  const CustomSearchBar({super.key});
+  final String? hintText;
+  const CustomSearchBar({
+    super.key,
+    this.hintText,
+  });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      decoration: const InputDecoration(
-        border: OutlineInputBorder(
+      decoration: InputDecoration(
+        border: const OutlineInputBorder(
           borderSide: BorderSide(color: AppColors.grey9c),
         ),
-        enabledBorder: OutlineInputBorder(
+        enabledBorder: const OutlineInputBorder(
           borderSide: BorderSide(color: AppColors.grey9c),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderSide: BorderSide(color: AppColors.grey9c),
         ),
-        hintText: "بحث",
+        hintText: hintText,
         hintTextDirection: TextDirection.rtl,
-        hintStyle: TextStyle(color: AppColors.grey9c),
-        suffixIcon: Icon(Icons.search, color: AppColors.grey9c),
+        hintStyle: const TextStyle(color: AppColors.grey9c),
+        suffixIcon: const Icon(Icons.search, color: AppColors.grey9c),
       ),
     );
   }

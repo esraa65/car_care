@@ -1,3 +1,4 @@
+import 'package:car_care/app/routing/routes.dart';
 import 'package:car_care/core/constants/app_assets.dart';
 import 'package:car_care/core/constants/app_colors.dart';
 import 'package:car_care/core/constants/app_sizes.dart';
@@ -11,6 +12,7 @@ import 'package:car_care/presentation/widget/custom/default_text.dart';
 import 'package:car_care/presentation/widget/custom/white_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import '../../widget/car_care/custom_container_row.dart';
 import '../../widget/car_care/custom_listview_container_service_body.dart';
 import '../../widget/custom/custom_app_bar.dart';
@@ -120,7 +122,9 @@ class CarCareScreen extends StatelessWidget {
                               WhiteContainer(
                                 widget: DefaultButton(
                                   title: 'استمرار',
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    context.push(Routes.mapScreen);
+                                  },
                                   width: double.infinity,
                                 ),
                               )

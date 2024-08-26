@@ -15,7 +15,7 @@ class ServiceEntity with EquatableMixin {
   String arDescription;
   int isActive;
   int? parentId;
-  String serviceImage;
+  String? serviceImage;
   List<dynamic> subCategory;
   List<ServiceMedia> media;
 
@@ -32,7 +32,7 @@ class ServiceEntity with EquatableMixin {
     required this.arDescription,
     required this.isActive,
     this.parentId,
-    required this.serviceImage,
+    this.serviceImage,
     required this.subCategory,
     required this.media,
   });

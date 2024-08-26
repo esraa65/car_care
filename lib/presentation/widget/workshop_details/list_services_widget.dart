@@ -35,8 +35,20 @@ class ListServicesWidget extends StatelessWidget {
             DefaultText(text: title),
             ClipRRect(
                 borderRadius: BorderRadius.circular(12),
-                child: Image.network(pic,
-                    width: 40, height: 40, fit: BoxFit.cover)),
+                child: Image.network(
+                  pic,
+                  width: 40,
+                  height: 40,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) {
+                    return Image.network(
+                      'https://via.placeholder.com/40', // Fallback image URL
+                      width: 40,
+                      height: 40,
+                      fit: BoxFit.cover,
+                    );
+                  },
+                )),
           ],
         ));
   }

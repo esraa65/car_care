@@ -6,4 +6,8 @@ abstract class NearestWorkshopSource {
     required String serviceId,
     required String type,
   });
+
+  Future<Map<String, dynamic>> workshopById({
+    required String id,
+  });
 }

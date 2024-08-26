@@ -38,8 +38,8 @@ class _SwitchWidgetState extends State<SwitchWidget> {
     return GestureDetector(
       onTap: _toggle,
       child: Container(
-        width: MediaQuery.of(context).size.width * 0.28,
-        height: MediaQuery.of(context).size.width * 0.12,
+        width: MediaQuery.of(context).size.width * 0.3,
+        height: MediaQuery.of(context).size.width * 0.13,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(24), color: AppColors.greyD8),
         child: Row(
@@ -50,21 +50,25 @@ class _SwitchWidgetState extends State<SwitchWidget> {
               icon: const Icon(Icons.map_outlined),
               color: !_isIcon1Selected ? Colors.blue : Colors.grey,
               onPressed: () {
-                context.pushNamed(Routes.workshopOnMapView);
+                context.pushNamed(
+                  Routes.workshopOnMapView,
+                );
               },
             ),
             const SizedBox(width: 16),
-            Container(
-              // padding: const EdgeInsets.all(6),
-              decoration: const BoxDecoration(
-                  shape: BoxShape.circle, color: AppColors.white),
-              child: IconButton(
-                iconSize: 30,
-                icon: const Icon(Icons.list_outlined),
-                color: _isIcon1Selected ? Colors.blue : Colors.grey,
-                onPressed: () {
-                  context.pushNamed(Routes.workShop);
-                },
+            Padding(
+              padding: const EdgeInsets.only(top: 4.0, bottom: 4),
+              child: Container(
+                decoration: const BoxDecoration(
+                    shape: BoxShape.circle, color: AppColors.white),
+                child: IconButton(
+                  iconSize: 30,
+                  icon: const Icon(Icons.list_outlined),
+                  color: _isIcon1Selected ? Colors.blue : Colors.grey,
+                  onPressed: () {
+                    context.pushNamed(Routes.workShop);
+                  },
+                ),
               ),
             ),
           ],

@@ -1,6 +1,7 @@
 import 'package:car_care/core/network/error/failure.dart';
 import 'package:car_care/data/source/source_base/workshops/nearest_workshop_source.dart';
 import 'package:car_care/domain/entity/workshops/nearest_work_shop_entity.dart';
+import 'package:car_care/domain/entity/workshops/workshop_details/workshop_details_entity.dart';
 import 'package:car_care/domain/repo/workshop/nearest_workshop_repo.dart';
 import 'package:dartz/dartz.dart';
 
@@ -30,6 +31,20 @@ class NearestWorkshopRepoImpl implements NearestWorkshopRepo {
           .toList();
       return Right(workshops);
     } catch (e) {
+      return Left(ServerFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, WorkshopDetailsEntity>> workshopById({required String id})async {
+    try {
+      final response = await nearestWorkshopSource.workshopById(id: id);
+      if (!(response['success'] as bool)) {
+        return Left(ServerFailure(response['message'] as String));
+      }
+      return Right(WorkshopDetailsEntity.fromJson(response['data'] as Map<String, dynamic>));
+
+    }catch(e){
       return Left(ServerFailure(e.toString()));
     }
   }

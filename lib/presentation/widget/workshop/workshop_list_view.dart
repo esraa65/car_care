@@ -27,7 +27,9 @@ class WorkshopListView extends StatelessWidget {
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
-                  context.pushNamed(Routes.workshopDetailsView);
+                  context.pushNamed(Routes.workshopDetailsView,
+                  pathParameters: {"id": workshops[index].id.toString()});
+                  
                 },
                 child: Container(
                   padding: const EdgeInsets.all(8),

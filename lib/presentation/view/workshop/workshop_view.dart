@@ -20,7 +20,7 @@ class WorkshopView extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          const SizedBox(height: 16),
+          const SizedBox(height: 20),
           const CustomArrowBack(),
           const Padding(
             padding: EdgeInsets.only(top: 10.0, right: 10, left: 10),
@@ -53,7 +53,11 @@ class WorkshopView extends StatelessWidget {
               if (state is NearestWorkshopSuccess) {
                 return WorkshopListView(workshops: state.workshops);
               } else {
-                return SizedBox.shrink();
+                return const Column(
+                  children: [
+                    Center(child: CircularProgressIndicator(),),
+                  ],
+                );
               }
             },
           ),

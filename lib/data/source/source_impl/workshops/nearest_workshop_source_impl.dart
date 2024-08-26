@@ -30,4 +30,14 @@ class NearestWorkshopSourceImpl implements NearestWorkshopSource {
       rethrow;
     }
   }
+
+  @override
+  Future<Map<String, dynamic>> workshopById({required String id}) async {
+    try {
+      final response = await baseDio.get("${EndPoint.workshopById}$id");
+      return response.data;
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

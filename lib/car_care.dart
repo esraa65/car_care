@@ -23,8 +23,8 @@ class CarCare extends StatelessWidget {
                   ..getNearestWorkshop(
                     latitude: "30.104732",
                     longitude: "31.378030",
-                    carId: "185",
-                    serviceId: "1",
+                    carId: "34",
+                    serviceId: "4",
                     type: "immediately",
                   )),
       ],

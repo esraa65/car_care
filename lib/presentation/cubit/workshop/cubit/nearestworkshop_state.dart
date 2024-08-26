@@ -24,3 +24,24 @@ final class NearestWorkshopFailure extends NearestWorkshopState {
   @override
   List<Object> get props => [message];
 }
+
+final class WorkshopByIdSuccess extends NearestWorkshopSuccess {
+  final WorkshopDetailsEntity workshopDetailsEntity;
+  const WorkshopByIdSuccess(
+      {required super.workshops, required this.workshopDetailsEntity});
+  @override
+  List<Object> get props => [workshopDetailsEntity];
+}
+
+final class WorkshopByIdFailure extends NearestWorkshopSuccess {
+  final String message;
+  const WorkshopByIdFailure({required super.workshops, required this.message});
+  @override
+  List<Object> get props => [message];
+}
+
+final class WorkshopByIdLoading extends NearestWorkshopSuccess {
+  const WorkshopByIdLoading({required super.workshops});
+  @override
+  List<Object> get props => [];
+}

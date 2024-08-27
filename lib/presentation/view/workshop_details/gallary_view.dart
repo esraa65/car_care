@@ -49,21 +49,23 @@ class GalleryWidget extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.3,
-              child: AlignedGridView.count(
-                itemCount: pics.length,
-                shrinkWrap: true,
-                crossAxisCount: 3,
-                crossAxisSpacing: 12,
-                mainAxisSpacing: 12,
-                itemBuilder: (context, index) {
-                  return ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.network(
-                        pics[index],
-                      ));
-                },
+            Expanded(
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height ,
+                child: AlignedGridView.count(
+                  itemCount: pics.length,
+                  shrinkWrap: true,
+                  crossAxisCount: 3,
+                  crossAxisSpacing: 12,
+                  mainAxisSpacing: 12,
+                  itemBuilder: (context, index) {
+                    return ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image.network(
+                          pics[index],
+                        ));
+                  },
+                ),
               ),
             )
           ])),

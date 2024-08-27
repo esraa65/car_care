@@ -1,8 +1,6 @@
-import 'package:car_care/core/constants/app_assets.dart';
 import 'package:car_care/core/constants/app_colors.dart';
 import 'package:car_care/presentation/widget/custom/text_form_fields.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class SearchAndFilterIcon extends StatelessWidget {
   const SearchAndFilterIcon({super.key});
@@ -29,7 +27,9 @@ class SearchAndFilterIcon extends StatelessWidget {
                       offset: Offset(0, 9), // changes position of shadow
                     ),
                   ]),
-              child: SvgPicture.asset(AppAssets.filter)),
+              child: const Icon(
+                Icons.filter_list,
+              )),
           SizedBox(
               width: MediaQuery.sizeOf(context).width * 0.75,
               child: TextFormFieldCustom(

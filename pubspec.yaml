@@ -7,15 +7,13 @@ environment:
   sdk: ^3.5.0
 
 dependencies:
+  bloc: null
+  dartz: null
+  dio: null
+  equatable: null
   flutter:
     sdk: flutter
-  bloc: 
-  dio:
-  flutter_bloc: 
-  equatable: 
-  shared_preferences: 
-  dartz: 
-  get_it: 
+  flutter_bloc: null
   flutter_localizations:
     sdk: flutter
   intl: 
@@ -27,14 +25,15 @@ dependencies:
   http: 
   latlong2:
   flutter_map_location_marker:
-
- 
-
+  geocoding: ^3.0.0
+  geolocator: ^12.0.0
+  get_it: null
+  shared_preferences: null
 
 dev_dependencies:
+  flutter_lints: ^4.0.0
   flutter_test:
     sdk: flutter
-  flutter_lints: ^4.0.0
 
 flutter:
   uses-material-design: true

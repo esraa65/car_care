@@ -7,9 +7,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../cubit/car_care_cubit/car_care_cubit.dart';
 
-class CustomRowCheckboxAndText extends StatelessWidget {
+class CustomRowCheckboxAndText extends StatefulWidget {
   const CustomRowCheckboxAndText({super.key});
 
+  @override
+  State<CustomRowCheckboxAndText> createState() =>
+      _CustomRowCheckboxAndTextState();
+}
+
+class _CustomRowCheckboxAndTextState extends State<CustomRowCheckboxAndText> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CarCareCubit, CarCareState>(
@@ -23,7 +29,9 @@ class CustomRowCheckboxAndText extends StatelessWidget {
                 activeColor: AppColors.primary,
                 value: cubit.isChecked,
                 onChanged: (val) {
-                  cubit.changeCheckBoxValue(val!);
+                  setState(() {
+                    cubit.isChecked = val!;
+                  });
                 }),
             width(4),
             const DefaultText(

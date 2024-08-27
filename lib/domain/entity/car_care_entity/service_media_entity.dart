@@ -13,7 +13,7 @@ class ServiceMedia with EquatableMixin {
   String conversionsDisk;
   int size;
   List<dynamic> manipulations;
-  Map<String, dynamic> customProperties;
+  List<dynamic> customProperties;
   Map<String, dynamic> generatedConversions;
   List<dynamic> responsiveImages;
   int orderColumn;
@@ -59,7 +59,7 @@ class ServiceMedia with EquatableMixin {
       conversionsDisk: json['conversions_disk'],
       size: json['size'],
       manipulations: List<dynamic>.from(json['manipulations']),
-      customProperties: Map<String, dynamic>.from(json['custom_properties']),
+      customProperties: List<dynamic>.from(json['custom_properties']),
       generatedConversions:
           Map<String, dynamic>.from(json['generated_conversions']),
       responsiveImages: List<dynamic>.from(json['responsive_images']),

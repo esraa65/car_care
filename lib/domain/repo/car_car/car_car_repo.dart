@@ -3,5 +3,5 @@ import 'package:dartz/dartz.dart';
 import '../../entity/car_care_entity/service_entity.dart';
 
 abstract class CarCareRepo {
-  Future<Either<Failure, ServiceEntity>> service();
+  Future<Either<Failure, List<ServiceEntity>>> service();
 }

@@ -1,25 +1,15 @@
+import 'package:car_care/domain/entity/car_care_entity/service_entity.dart';
 import 'package:car_care/domain/repo/car_car/car_car_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'car_care_state.dart';
 
 class CarCareCubit extends Cubit<CarCareState> {
   final CarCareRepo careRepo;
   CarCareCubit(this.careRepo) : super(CarCareinitialState());
 
-  int selectedIndex = 0;
-
   bool isChecked = false;
 
-  void changeConatinerIndex(int index) {
-    selectedIndex = index;
-    emit(ChangeContainerIndex());
-  }
-
-  void changeCheckBoxValue(bool val) {
-    isChecked = !isChecked;
-    emit(ChangeCheckBoxState());
-  }
+  List<ServiceEntity> getservice = [];
 
   Future<void> service() async {
     emit(CarCareLoadingState());

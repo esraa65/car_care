@@ -10,10 +10,6 @@ sealed class CarCareState extends Equatable {
 
 class CarCareinitialState extends CarCareState {}
 
-class ChangeContainerIndex extends CarCareState {}
-
-class ChangeCheckBoxState extends CarCareState {}
-
 final class CarCareLoadingState extends CarCareState {}
 
 final class CarCareSuccessState extends CarCareState {

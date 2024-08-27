@@ -38,30 +38,41 @@ class WorkshopRowDataWidget extends StatelessWidget {
                 ],
               ),
               Container(
-                width: MediaQuery.sizeOf(context).width * 0.35,
-                padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
                 decoration: BoxDecoration(
                   color: Colors.blue.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: DefaultText(
-                    textOverflow: TextOverflow.ellipsis,
-                    fontSize: 14,
-                    text: category,
-                    color: Colors.blue,
-                    fontWeight: FontWeight.w600),
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxWidth: MediaQuery.sizeOf(context).width * 0.5,
+                    maxHeight: MediaQuery.sizeOf(context).height * 0.03,
+                  ),
+                  child: DefaultText(
+                      textOverflow: TextOverflow.ellipsis,
+                      fontSize: 14,
+                      text: category,
+                      color: Colors.blue,
+                      fontWeight: FontWeight.w600),
+                ),
               ),
             ],
           ),
           height(8),
           DefaultText(text: workshopName, fontSize: 16, color: AppColors.black),
           height(8),
-          DefaultText(
-            text: location,
-            fontSize: 14,
-            fontWeight: FontWeight.w400,
-            color: AppColors.grey9c,
-            textOverflow: TextOverflow.ellipsis,
+          ConstrainedBox(
+            constraints: BoxConstraints(
+              maxWidth: MediaQuery.sizeOf(context).width * 0.3,
+              maxHeight: MediaQuery.sizeOf(context).height * 0.02,
+            ),
+            child: DefaultText(
+              textOverflow: TextOverflow.ellipsis,
+              text: location,
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+              color: AppColors.grey9c,
+            ),
           ),
         ],
       ),

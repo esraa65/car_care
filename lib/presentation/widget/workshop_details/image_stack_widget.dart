@@ -5,13 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ImageStackWidget extends StatelessWidget {
-    final String logo;
+  final String logo;
 
   const ImageStackWidget({super.key, required this.logo});
 
   @override
   Widget build(BuildContext context) {
-
     return BlocBuilder<NearestWorkshopCubit, NearestWorkshopState>(
       builder: (context, state) {
         if (state is WorkshopByIdLoading) {
@@ -28,7 +27,7 @@ class ImageStackWidget extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               Positioned(
-                top: 24,
+                top: 30,
                 left: 10,
                 child: Row(
                   children: [
@@ -52,7 +51,14 @@ class ImageStackWidget extends StatelessWidget {
                   ],
                 ),
               ),
-              const Positioned(top: 24, right: 10, child: CustomArrowBack()),
+              Positioned(
+                  top: 30,
+                  right: 10,
+                  child: CustomArrowBack(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  )),
               Positioned(
                   bottom: 10,
                   left: 10,
@@ -64,7 +70,7 @@ class ImageStackWidget extends StatelessWidget {
                     color: AppColors.white,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      itemCount:11,
+                      itemCount: 11,
                       itemBuilder: (context, index) {
                         return ClipRRect(
                           borderRadius: BorderRadius.circular(12.0),

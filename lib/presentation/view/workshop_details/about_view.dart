@@ -21,11 +21,16 @@ class AboutView extends StatelessWidget {
             fontWeight: FontWeight.w400,
             color: AppColors.grey4B,
           ),
-          DefaultText(
-            text: description,
-            fontSize: 14,
-            fontWeight: FontWeight.w400,
-            color: AppColors.grey4B,
+          ConstrainedBox(
+            constraints:  BoxConstraints(
+              maxWidth: MediaQuery.sizeOf(context).width ,
+              ),
+            child: DefaultText(
+              text: description,
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+              color: AppColors.grey4B,
+            ),
           ),
           height(30),
           Row(

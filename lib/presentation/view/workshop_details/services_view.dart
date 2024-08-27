@@ -1,59 +1,62 @@
-import 'package:car_care/core/constants/app_colors.dart';
-import 'package:car_care/core/constants/app_sizes.dart';
-import 'package:car_care/presentation/widget/custom/default_text.dart';
+import 'package:car_care/presentation/cubit/workshop/cubit/nearestworkshop_cubit.dart';
+import 'package:car_care/presentation/widget/workshop_details/list_services_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ServicesView extends StatelessWidget {
-  const ServicesView({super.key});
+class ServicesView extends StatefulWidget {
+  const ServicesView({
+    super.key,
+  });
+
+  @override
+  State<ServicesView> createState() => _ServicesViewState();
+}
+
+class _ServicesViewState extends State<ServicesView> {
+  List<bool> _selectedServices = []; // To track checkbox states
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ServiceCheckbox(title: 'ddd', value: true, onChanged: (value) {}),
-    );
-  }
-}
+      body: BlocBuilder<NearestWorkshopCubit, NearestWorkshopState>(
+        builder: (context, state) {
+          if (state is WorkshopByIdLoading) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          if (state is WorkshopByIdSuccess) {
+            final details = state.workshopDetailsEntity;
 
-class ServiceCheckbox extends StatelessWidget {
-  final String title;
-  final bool value;
-  final ValueChanged<bool?> onChanged;
+            // Initialize _selectedServices based on the services count
+            if (_selectedServices.length != details.services!.length) {
+              _selectedServices =
+                  List.generate(details.services!.length, (index) => false);
+            }
 
-  const ServiceCheckbox({
-    super.key,
-    required this.title,
-    required this.value,
-    required this.onChanged,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        border: Border.all(color: AppColors.greyD9), // Set the border color
-        borderRadius:
-            BorderRadius.circular(10), // Optional: Set the border radius
-      ),
-      child: Row(
-        children: [
-          Expanded(
-            child: CheckboxListTile(
-              title: DefaultText(text: title),
-              value: value,
-              onChanged: onChanged,
-              controlAffinity: ListTileControlAffinity.leading,
-              activeColor: AppColors.primary,
-            ),
-          ),
-          Image.network(
-            'https://via.placeholder.com/150',
-            fit: BoxFit.scaleDown,
-            width: 40,
-            height: 40,
-          ),
-          width(2),
-        ],
+            return SizedBox(
+              height: MediaQuery.of(context).size.height,
+              child: ListView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: details.services!.length,
+                itemBuilder: (context, index) {
+                  return ListServicesWidget(
+                    pic: details.services![index].serviceImage ??
+                        'https://via.placeholder.com/150',
+                    title: details.services![index].arName ?? "لا يوجد",
+                    value: _selectedServices[index],
+                    onChanged: (value) {
+                      setState(() {
+                        _selectedServices[index] = value ?? false;
+                      });
+                    },
+                  );
+                },
+              ),
+            );
+          } else {
+            return const Center(child: CircularProgressIndicator());
+          }
+        },
       ),
     );
   }

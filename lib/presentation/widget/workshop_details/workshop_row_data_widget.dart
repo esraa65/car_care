@@ -4,59 +4,78 @@ import 'package:car_care/presentation/widget/custom/default_text.dart';
 import 'package:flutter/material.dart';
 
 class WorkshopRowDataWidget extends StatelessWidget {
-  const WorkshopRowDataWidget({super.key});
+  final String rating;
+  final String reviewCount;
+  final String category;
+  final String workshopName;
+  final String location;
+  const WorkshopRowDataWidget(
+      {super.key,
+      required this.rating,
+      required this.reviewCount,
+      required this.category,
+      required this.workshopName,
+      required this.location});
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          const Icon(Icons.star, color: AppColors.orange),
-                          width(8),
-                          const DefaultText(
-                              text: '4.8', color: AppColors.black),
-                          width(8),
-                          const DefaultText(
-                              text: '(365 تقييم)', color: AppColors.grey4B)
-                        ],
-                      ),
-                      Container(
-                        width: MediaQuery.sizeOf(context).width * 0.35,
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 4, vertical: 6),
-                        decoration: BoxDecoration(
-                          color: Colors.blue.withOpacity(0.1),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: const DefaultText(
-                            text: 'اطارات',
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  height(8),
-                  const DefaultText(
-                      text: 'اوتو كار سيرفيس',
-                      fontSize: 24,
-                      color: AppColors.black),
-                  height(8),
-                  const DefaultText(
-                      text: 'السعودية , الرياض 20 شارع العليا',
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.grey9c),
+                  const Icon(Icons.star, color: AppColors.orange),
+                  width(8),
+                  DefaultText(text: rating, color: AppColors.black),
+                  width(8),
+                  DefaultText(
+                      text: '($reviewCount تقييم)', color: AppColors.grey4B)
                 ],
               ),
-        
-        
-            );
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
+                decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxWidth: MediaQuery.sizeOf(context).width * 0.5,
+                    maxHeight: MediaQuery.sizeOf(context).height * 0.03,
+                  ),
+                  child: DefaultText(
+                      textOverflow: TextOverflow.ellipsis,
+                      fontSize: 14,
+                      text: category,
+                      color: Colors.blue,
+                      fontWeight: FontWeight.w600),
+                ),
+              ),
+            ],
+          ),
+          height(8),
+          DefaultText(text: workshopName, fontSize: 16, color: AppColors.black),
+          height(8),
+          ConstrainedBox(
+            constraints: BoxConstraints(
+              maxWidth: MediaQuery.sizeOf(context).width * 0.3,
+              maxHeight: MediaQuery.sizeOf(context).height * 0.02,
+            ),
+            child: DefaultText(
+              textOverflow: TextOverflow.ellipsis,
+              text: location,
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+              color: AppColors.grey9c,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

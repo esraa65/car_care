@@ -23,13 +23,13 @@ class WorkshopListView extends StatelessWidget {
       if (state is NearestWorkshopSuccess) {
         return Expanded(
           child: ListView.builder(
+            padding: EdgeInsets.zero,
             itemCount: workshops.length,
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
                   context.pushNamed(Routes.workshopDetailsView,
-                  pathParameters: {"id": workshops[index].id.toString()});
-                  
+                      pathParameters: {"id": workshops[index].id.toString()});
                 },
                 child: Container(
                   padding: const EdgeInsets.all(8),
@@ -116,7 +116,11 @@ class WorkshopListView extends StatelessWidget {
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 8, vertical: 4),
                                   child: DefaultText(
-                                      text: workshops[index].services!.first.arName ?? '',
+                                      text: workshops[index]
+                                              .services!
+                                              .first
+                                              .arName ??
+                                          '',
                                       color: Colors.blue,
                                       fontWeight: FontWeight.bold),
                                 ),

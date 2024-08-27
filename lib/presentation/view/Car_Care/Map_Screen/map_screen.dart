@@ -1,3 +1,4 @@
+import 'package:car_care/app/routing/routes.dart';
 import 'package:car_care/core/constants/app_colors.dart';
 import 'package:car_care/core/constants/app_sizes.dart';
 import 'package:car_care/core/extensions/media_query.dart';
@@ -123,7 +124,9 @@ class _MapScreenState extends State<MapScreen> {
                             widget: DefaultButton(
                               width: double.maxFinite,
                               title: "تاكيد",
-                              onPressed: () {},
+                              onPressed: () {
+                                context.push(Routes.filteration);
+                              },
                             ),
                           ),
                         ],

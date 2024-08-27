@@ -8,6 +8,7 @@ PreferredSizeWidget appBar({
   required String title,
 }) {
   return AppBar(
+    automaticallyImplyLeading: false,
     title: DefaultText(
       text: title,
       fontSize: 18,

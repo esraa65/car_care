@@ -5,7 +5,6 @@ import 'package:car_care/presentation/widget/custom/default_button.dart';
 import 'package:car_care/presentation/widget/custom/default_text.dart';
 import 'package:car_care/presentation/widget/custom/location_row_widget.dart';
 import 'package:car_care/presentation/widget/custom/white_container.dart';
-import 'package:car_care/presentation/widget/workshop/search_and_filter_icon.dart';
 import 'package:car_care/presentation/widget/workshop/switch_widget.dart';
 import 'package:car_care/presentation/widget/workshop/workshop_list_view.dart';
 import 'package:flutter/material.dart';
@@ -26,8 +25,8 @@ class WorkshopView extends StatelessWidget {
             padding: EdgeInsets.only(top: 10.0, right: 10, left: 10),
             child: LocationRowWidget(),
           ),
-          const SizedBox(height: 16),
-          const SearchAndFilterIcon(),
+          //   const SizedBox(height: 16),
+          //  const SearchAndFilterIcon(),
           const SizedBox(height: 16),
           Padding(
             padding: const EdgeInsets.only(right: 16, left: 16),
@@ -45,6 +44,8 @@ class WorkshopView extends StatelessWidget {
                 color: AppColors.grey4B,
                 fontWeight: FontWeight.bold),
           ),
+          const SizedBox(height: 12),
+
           BlocBuilder<NearestWorkshopCubit, NearestWorkshopState>(
             builder: (context, state) {
               if (state is NearestWorkshopLoading) {
@@ -55,7 +56,9 @@ class WorkshopView extends StatelessWidget {
               } else {
                 return const Column(
                   children: [
-                    Center(child: CircularProgressIndicator(),),
+                    Center(
+                      child: CircularProgressIndicator(),
+                    ),
                   ],
                 );
               }

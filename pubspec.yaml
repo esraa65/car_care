@@ -40,11 +40,6 @@ flutter:
   generate: true
   assets:
     - assets/fonts/
-    - assets/images/
-    - assets/images/vectors/
-    - assets/video/
-    - assets/icons/
-    - assets/anim/
 
   fonts:
     - family: JannaLT

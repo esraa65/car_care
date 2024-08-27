@@ -12,7 +12,7 @@ class LayoutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Widget> pages = [
       const WorkshopView(),
-      const WorkshopDetailsView(),
+       const WorkshopDetailsView(id: "1",),
     ];
     return Scaffold(body: BlocBuilder<NavigationBarCubit, int>(
       builder: (context, state) {

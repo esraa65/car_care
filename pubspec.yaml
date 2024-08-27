@@ -16,17 +16,25 @@ dependencies:
   flutter_bloc: null
   flutter_localizations:
     sdk: flutter
-  flutter_map: ^7.0.2
-  flutter_staggered_grid_view: null
-  flutter_svg: null
+  intl: 
+  go_router: 
+  flutter_svg: 
+  flutter_staggered_grid_view:
+  flutter_map:
+  location: 
+  http: 
+  latlong2:
+  flutter_map_location_marker:
   geocoding: ^3.0.0
   geolocator: ^12.0.0
   get_it: null
+
   go_router: null
   intl: null
   latlong2: ^0.9.1
   location: ^6.0.2
   flutter_rating_bar:
+
   shared_preferences: null
 
 dev_dependencies:

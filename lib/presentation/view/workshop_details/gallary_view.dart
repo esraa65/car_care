@@ -6,30 +6,23 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class GalleryWidget extends StatelessWidget {
+  final List<String> pics;
   const GalleryWidget({
     super.key,
+    required this.pics,
   });
 
   @override
   Widget build(BuildContext context) {
-    List<String> imageUrls = [
-      'https://via.placeholder.com/150',
-      'https://via.placeholder.com/150',
-      'https://via.placeholder.com/150',
-      'https://via.placeholder.com/150',
-      'https://via.placeholder.com/150',
-      'https://via.placeholder.com/150',
-      // Add more URLs here
-    ];
     return SizedBox(
       child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Column(children: [
             height(10),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                DefaultText(
+                const DefaultText(
                   text: "viewAll",
                   color: AppColors.grey4B,
                   fontWeight: FontWeight.bold,
@@ -39,14 +32,14 @@ class GalleryWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(children: [
-                      DefaultText(
+                      const DefaultText(
                         text: "صورة",
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                         color: AppColors.grey4B,
                       ),
                       DefaultText(
-                        text: " (${2})",
+                        text: " (${pics.length})",
                         color: AppColors.primary,
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
@@ -59,7 +52,7 @@ class GalleryWidget extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.3,
               child: AlignedGridView.count(
-                itemCount: imageUrls.length,
+                itemCount: pics.length,
                 shrinkWrap: true,
                 crossAxisCount: 3,
                 crossAxisSpacing: 12,
@@ -67,7 +60,9 @@ class GalleryWidget extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return ClipRRect(
                       borderRadius: BorderRadius.circular(10),
-                      child: Image.network(imageUrls[index]));
+                      child: Image.network(
+                        pics[index],
+                      ));
                 },
               ),
             )

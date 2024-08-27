@@ -1,3 +1,4 @@
+import 'package:car_care/presentation/cubit/app_cubit/app_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,6 +16,7 @@ class CarCare extends StatelessWidget {
         BlocProvider<NavigationBarCubit>(
           create: (context) => NavigationBarCubit(),
         ),
+        BlocProvider(create: (context) => AppCubit())
 
         //  BlocProvider(create: (context) => LocalizationCubit()),
       ],

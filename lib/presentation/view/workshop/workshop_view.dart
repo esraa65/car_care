@@ -63,7 +63,9 @@ class WorkshopView extends StatelessWidget {
                 return const Center(child: CircularProgressIndicator());
               }
               if (state is NearestWorkshopSuccess) {
-                return WorkshopListView(workshops: state.workshops);
+                return WorkshopListView(workshops: state.workshops,
+                
+                );
               } else {
                 return const Column(
                   children: [
@@ -81,7 +83,7 @@ class WorkshopView extends StatelessWidget {
                   width: MediaQuery.sizeOf(context).width * 0.9,
                   height: MediaQuery.sizeOf(context).height * 0.06,
                   containerColor: AppColors.primary,
-                  title: '"اقترح علي مركز صيانة"',
+                  title: 'اقترح علي مركز صيانة',
                   onPressed: () {}))
         ],
       ),

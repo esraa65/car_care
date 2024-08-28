@@ -114,6 +114,13 @@ class _WorkshopOnMapViewState extends State<WorkshopOnMapView> {
           );
         },
       ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.my_location),
+        onPressed: () {
+          // Move to default center or adjust if needed
+          _mapController.move(_defaultCenter, 15.0);
+        },
+      ),
     );
   }
 }

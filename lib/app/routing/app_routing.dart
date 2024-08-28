@@ -6,7 +6,6 @@ import 'package:car_care/presentation/view/workshop_details/workshop_details_vie
 import 'package:go_router/go_router.dart';
 import '../../presentation/view/Car_Care/car_care_screen.dart';
 import '../../presentation/view/Filteration/filtreation_screen.dart';
-import '../../presentation/view/layout/layout.dart';
 import '../../presentation/view/order_summary/order_summary.dart';
 
 final GoRouter router = GoRouter(
@@ -16,12 +15,7 @@ final GoRouter router = GoRouter(
       builder: (context, state) => const CarCareScreen(),
     ),
     GoRoute(
-      path: '/layout',
-      name: Routes.layout,
-      builder: (context, state) => const LayoutPage(),
-    ),
-    GoRoute(
-      path: '/workshopview',
+      path: '/${Routes.workShop}',
       name: Routes.workShop,
       builder: (context, state) => const WorkshopView(),
     ),

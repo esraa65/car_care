@@ -21,7 +21,8 @@ dependencies:
   flutter_svg: 
   flutter_staggered_grid_view:
   flutter_map:
-  http:
+  http: 
+  latlong2:
   flutter_map_location_marker:
   geocoding: ^3.0.0
   geolocator: ^12.0.0
@@ -42,11 +43,6 @@ flutter:
   generate: true
   assets:
     - assets/fonts/
-    - assets/images/
-    - assets/images/vectors/
-    - assets/video/
-    - assets/icons/
-    - assets/anim/
 
   fonts:
     - family: JannaLT

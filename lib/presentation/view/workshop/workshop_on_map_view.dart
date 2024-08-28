@@ -63,7 +63,14 @@ class _WorkshopOnMapViewState extends State<WorkshopOnMapView> {
                     ),
                     MarkerLayer(markers: markers),
                   ]),
-              const Positioned(top: 20, right: 16, child: CustomArrowBack()),
+              Positioned(
+                  top: 20,
+                  right: 16,
+                  child: CustomArrowBack(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  )),
               const Positioned(
                 top: 100,
                 right: 5,

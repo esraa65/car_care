@@ -1,3 +1,4 @@
+
 import 'package:car_care/app/routing/routes.dart';
 import 'package:car_care/core/constants/app_colors.dart';
 import 'package:car_care/core/constants/app_sizes.dart';
@@ -16,12 +17,6 @@ import 'package:location/location.dart' as locate;
 import '../../../widget/custom/custom_search_bar.dart';
 import '../../../widget/custom/default_text.dart';
 
-class MapScreen extends StatefulWidget {
-  const MapScreen({super.key});
-
-  @override
-  State<MapScreen> createState() => _MapScreenState();
-}
 
 class _MapScreenState extends State<MapScreen> {
   @override

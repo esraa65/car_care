@@ -27,6 +27,10 @@ dependencies:
   geocoding: ^3.0.0
   geolocator: ^12.0.0
   get_it: null
+  latlong2: ^0.9.1
+  location: ^6.0.2
+  flutter_rating_bar:
+
   shared_preferences: null
 
 dev_dependencies:

@@ -26,4 +26,7 @@ class AppColors {
   //! Kareem
   static const Color greyE2 = Color(0xffE2E2E2);
   static const Color black21 = Color(0xff212121);
+  static const Color black33 = Color(0xff313131);
+  static const Color greyEEE = Color(0xffeeeeee);
+  static const Color greyEB = Color(0xffEBEBEB);
 }

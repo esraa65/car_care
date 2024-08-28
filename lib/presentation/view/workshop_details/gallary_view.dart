@@ -55,6 +55,11 @@ class GalleryWidget extends StatelessWidget {
                 child: AlignedGridView.count(
                   itemCount: pics.length,
                   shrinkWrap: true,
+                height: MediaQuery.of(context).size.height,
+                child: AlignedGridView.count(
+                  itemCount: pics.length,
+                  //shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
                   crossAxisCount: 3,
                   crossAxisSpacing: 12,
                   mainAxisSpacing: 12,

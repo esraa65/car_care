@@ -184,7 +184,9 @@ class WorkshopListView extends StatelessWidget {
                               radius: 24,
                               containerColor: AppColors.primary,
                               title: 'حجز',
-                              onPressed: () {},
+                              onPressed: () {
+                                context.push(Routes.orderSummary);
+                              },
                             )
                           ],
                         ),

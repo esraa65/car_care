@@ -24,7 +24,7 @@ class CarCare extends StatelessWidget {
                     latitude: "30.104732",
                     longitude: "31.378030",
                     carId: "32",
-                    serviceId: "1",
+                    serviceId: "2",
                     type: "immediately",
                   )),
         BlocProvider(create: (context) => AppCubit())

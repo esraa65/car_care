@@ -87,6 +87,10 @@ class _WorkshopDetailsViewState extends State<WorkshopDetailsView> {
                                 "https://via.placeholder.com/200x200",
                             details.logo ??
                                 "https://via.placeholder.com/200x200",
+                            details.logo ??
+                                "https://via.placeholder.com/200x200",
+                            details.logo ??
+                                "https://via.placeholder.com/200x200",
                           ],
                         ),
                         const RatingView(

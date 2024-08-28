@@ -1,6 +1,8 @@
 import 'package:car_care/core/constants/app_colors.dart';
 import 'package:car_care/core/constants/app_sizes.dart';
+import 'package:car_care/presentation/widget/custom/default_button.dart';
 import 'package:car_care/presentation/widget/custom/default_text.dart';
+import 'package:car_care/presentation/widget/custom/white_container.dart';
 import 'package:car_care/presentation/widget/workshop_details/icon_with_container_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -23,9 +25,9 @@ class AboutView extends StatelessWidget {
           ),
           height(12),
           ConstrainedBox(
-            constraints:  BoxConstraints(
-              maxWidth: MediaQuery.sizeOf(context).width ,
-              ),
+            constraints: BoxConstraints(
+              maxWidth: MediaQuery.sizeOf(context).width,
+            ),
             child: DefaultText(
               text: description,
               fontSize: 14,
@@ -50,9 +52,14 @@ class AboutView extends StatelessWidget {
               )
             ],
           ),
-          const SizedBox(
-            height: 12,
-          )
+          const Spacer(),
+          WhiteContainer(
+              widget: DefaultButton(
+                  width: MediaQuery.sizeOf(context).width * 0.9,
+                  height: MediaQuery.sizeOf(context).height * 0.06,
+                  containerColor: AppColors.primary,
+                  title: 'احجز ',
+                  onPressed: () {}))
         ],
       ),
     );

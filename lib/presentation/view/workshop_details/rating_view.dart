@@ -1,6 +1,8 @@
 import 'package:car_care/core/constants/app_colors.dart';
 import 'package:car_care/core/constants/app_sizes.dart';
+import 'package:car_care/presentation/widget/custom/default_button.dart';
 import 'package:car_care/presentation/widget/custom/default_text.dart';
+import 'package:car_care/presentation/widget/custom/white_container.dart';
 import 'package:car_care/presentation/widget/workshop_details/rating_container_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -32,23 +34,27 @@ class RatingView extends StatelessWidget {
         ),
         height(12),
         Expanded(
-          child: SizedBox(
-            height: MediaQuery.sizeOf(context).height ,
-            child: ListView.builder(
-              shrinkWrap: true,
-              padding: EdgeInsets.zero,
-              itemCount: 5,
-              itemBuilder: (context, index) {
-                return RatingContainerWidget(
-                    name: name,
-                    maintainType: maintainType,
-                    pic: pic,
-                    date: date,
-                    review: review);
-              },
-            ),
+          child: ListView.builder(
+            shrinkWrap: true,
+            padding: EdgeInsets.zero,
+            itemCount: 5,
+            itemBuilder: (context, index) {
+              return RatingContainerWidget(
+                  name: name,
+                  maintainType: maintainType,
+                  pic: pic,
+                  date: date,
+                  review: review);
+            },
           ),
-        )
+        ),
+        WhiteContainer(
+            widget: DefaultButton(
+                width: MediaQuery.sizeOf(context).width * 0.9,
+                height: MediaQuery.sizeOf(context).height * 0.06,
+                containerColor: AppColors.primary,
+                title: 'احجز ',
+                onPressed: () {}))
       ]),
     ));
   }

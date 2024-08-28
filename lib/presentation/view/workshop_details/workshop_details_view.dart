@@ -31,44 +31,44 @@ class _WorkshopDetailsViewState extends State<WorkshopDetailsView> {
       length: 4,
       initialIndex: 3,
       child: Scaffold(
-        body: SingleChildScrollView(
-          child: BlocBuilder<NearestWorkshopCubit, NearestWorkshopState>(
-              builder: (context, state) {
-            if (state is WorkshopByIdLoading) {
-              return const Center(child: CircularProgressIndicator());
-            }
-            if (state is WorkshopByIdSuccess) {
-              final details = state.workshopDetailsEntity;
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ImageStackWidget(
-                    logo: details.logo ?? "https://via.placeholder.com/200x200",
+        body: BlocBuilder<NearestWorkshopCubit, NearestWorkshopState>(
+            builder: (context, state) {
+          if (state is WorkshopByIdLoading) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          if (state is WorkshopByIdSuccess) {
+            final details = state.workshopDetailsEntity;
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ImageStackWidget(
+                  logo: details.logo ?? "https://via.placeholder.com/200x200",
+                ),
+                WorkshopRowDataWidget(
+                  rating: details.starRating.toString(),
+                  reviewCount: details.starRating.toString(),
+                  category: details.name.toString(),
+                  workshopName: details.name.toString(),
+                  location: details.address.toString(),
+                ),
+                const TabBar(
+                  tabs: [
+                    Tab(text: "عن الشركة"),
+                    Tab(text: "الصور"),
+                    Tab(text: "التقييمات"),
+                    Tab(text: "الخدمات"),
+                  ],
+                  labelStyle: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
                   ),
-                  WorkshopRowDataWidget(
-                    rating: details.starRating.toString(),
-                    reviewCount: details.starRating.toString(),
-                    category: details.name.toString(),
-                    workshopName: details.name.toString(),
-                    location: details.address.toString(),
-                  ),
-                  const TabBar(
-                    tabs: [
-                      Tab(text: "عن الشركة"),
-                      Tab(text: "الصور"),
-                      Tab(text: "التقييمات"),
-                      Tab(text: "الخدمات"),
-                    ],
-                    labelStyle: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    labelColor: AppColors.primary,
-                    unselectedLabelColor: AppColors.grey9c,
-                    indicatorColor: AppColors.primary,
-                    indicatorWeight: 3,
-                  ),
-                  SizedBox(
+                  labelColor: AppColors.primary,
+                  unselectedLabelColor: AppColors.grey9c,
+                  indicatorColor: AppColors.primary,
+                  indicatorWeight: 3,
+                ),
+                Expanded(
+                  child: SizedBox(
                     height: MediaQuery.of(context).size.height,
                     child: TabBarView(
                       children: [
@@ -100,15 +100,15 @@ class _WorkshopDetailsViewState extends State<WorkshopDetailsView> {
                       ],
                     ),
                   ),
-                ],
-              );
-            } else {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-          }),
-        ),
+                ),
+              ],
+            );
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        }),
       ),
     );
   }

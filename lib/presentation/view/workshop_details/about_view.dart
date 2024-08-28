@@ -21,6 +21,7 @@ class AboutView extends StatelessWidget {
             fontWeight: FontWeight.w400,
             color: AppColors.grey4B,
           ),
+          height(12),
           ConstrainedBox(
             constraints:  BoxConstraints(
               maxWidth: MediaQuery.sizeOf(context).width ,

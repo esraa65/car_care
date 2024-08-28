@@ -32,19 +32,21 @@ class RatingView extends StatelessWidget {
         ),
         height(12),
         Expanded(
-          child: ListView.builder(
-          //  physics: const NeverScrollableScrollPhysics(),
-            padding: EdgeInsets.zero,
-            shrinkWrap: true,
-            itemCount: 12,
-            itemBuilder: (context, index) {
-              return RatingContainerWidget(
-                  name: name,
-                  maintainType: maintainType,
-                  pic: pic,
-                  date: date,
-                  review: review);
-            },
+          child: SizedBox(
+            height: MediaQuery.sizeOf(context).height ,
+            child: ListView.builder(
+              shrinkWrap: true,
+              padding: EdgeInsets.zero,
+              itemCount: 5,
+              itemBuilder: (context, index) {
+                return RatingContainerWidget(
+                    name: name,
+                    maintainType: maintainType,
+                    pic: pic,
+                    date: date,
+                    review: review);
+              },
+            ),
           ),
         )
       ]),

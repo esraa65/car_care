@@ -32,26 +32,22 @@ class _ServicesViewState extends State<ServicesView> {
                   List.generate(details.services!.length, (index) => false);
             }
 
-            return SizedBox(
-              height: MediaQuery.of(context).size.height,
-              child: ListView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: details.services!.length,
-                itemBuilder: (context, index) {
-                  return ListServicesWidget(
-                    pic: details.services![index].serviceImage ??
-                        'https://via.placeholder.com/150',
-                    title: details.services![index].arName ?? "لا يوجد",
-                    value: _selectedServices[index],
-                    onChanged: (value) {
-                      setState(() {
-                        _selectedServices[index] = value ?? false;
-                      });
-                    },
-                  );
-                },
-              ),
+            return ListView.builder(
+              shrinkWrap: true,
+              itemCount: details.services!.length,
+              itemBuilder: (context, index) {
+                return ListServicesWidget(
+                  pic: details.services![index].serviceImage ??
+                      'https://via.placeholder.com/150',
+                  title: details.services![index].arName ?? "لا يوجد",
+                  value: _selectedServices[index],
+                  onChanged: (value) {
+                    setState(() {
+                      _selectedServices[index] = value ?? false;
+                    });
+                  },
+                );
+              },
             );
           } else {
             return const Center(child: CircularProgressIndicator());

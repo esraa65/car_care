@@ -19,7 +19,7 @@ class WorkshopView extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          const SizedBox(height: 20),
+          const SizedBox(height: 30),
           const CustomArrowBack(),
           const Padding(
             padding: EdgeInsets.only(top: 10.0, right: 10, left: 10),

@@ -23,7 +23,7 @@ class GalleryWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const DefaultText(
-                  text: "viewAll",
+                  text: "معرض الصور",
                   color: AppColors.grey4B,
                   fontWeight: FontWeight.bold,
                   fontSize: 17,
@@ -49,24 +49,19 @@ class GalleryWidget extends StatelessWidget {
                 ),
               ],
             ),
-            Expanded(
-              child: SizedBox(
-                height: MediaQuery.of(context).size.height,
-                child: AlignedGridView.count(
-                  itemCount: pics.length,
-                  shrinkWrap: true,
-                  crossAxisCount: 3,
-                  crossAxisSpacing: 12,
-                  mainAxisSpacing: 12,
-                  itemBuilder: (context, index) {
-                    return ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Image.network(
-                          pics[index],
-                        ));
-                  },
-                ),
-              ),
+            AlignedGridView.count(
+              itemCount: pics.length,
+              shrinkWrap: true,
+              crossAxisCount: 3,
+              crossAxisSpacing: 12,
+              mainAxisSpacing: 12,
+              itemBuilder: (context, index) {
+                return ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.network(
+                      pics[index],
+                    ));
+              },
             )
           ])),
     );

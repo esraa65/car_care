@@ -23,6 +23,7 @@ class WorkshopListView extends StatelessWidget {
       if (state is NearestWorkshopSuccess) {
         return Expanded(
           child: ListView.builder(
+            padding: EdgeInsets.zero,
             itemCount: workshops.length,
             itemBuilder: (context, index) {
               return GestureDetector(

@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import '../../presentation/view/Car_Care/car_care_screen.dart';
 import '../../presentation/view/Filteration/filtreation_screen.dart';
 import '../../presentation/view/layout/layout.dart';
+import '../../presentation/view/order_summary/order_summary.dart';
 
 final GoRouter router = GoRouter(
   routes: [
@@ -43,6 +44,10 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: Routes.filteration,
       builder: (context, state) => const FilterScreen(),
+    ),
+    GoRoute(
+      path: Routes.orderSummary,
+      builder: (context, state) => const OrderSummary(),
     ),
   ],
 );

@@ -1,22 +1,27 @@
-
-import 'package:car_care/app/routing/routes.dart';
-import 'package:car_care/core/constants/app_colors.dart';
-import 'package:car_care/core/constants/app_sizes.dart';
 import 'package:car_care/core/extensions/media_query.dart';
-import 'package:car_care/presentation/cubit/map/map_cubit.dart';
-import 'package:car_care/presentation/cubit/map/map_state.dart';
-import 'package:car_care/presentation/widget/custom/custom_arrow_forward.dart';
-import 'package:car_care/presentation/widget/custom/default_button.dart';
-import 'package:car_care/presentation/widget/custom/white_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:go_router/go_router.dart';
 import 'package:latlong2/latlong.dart';
+import '../../../app/routing/routes.dart';
+import '../../../core/constants/app_colors.dart';
+import '../../../core/constants/app_sizes.dart';
+import '../../cubit/map/map_cubit.dart';
+import '../../cubit/map/map_state.dart';
+import '../../widget/custom/custom_arrow_forward.dart';
+import '../../widget/custom/custom_search_bar.dart';
+import '../../widget/custom/default_button.dart';
+import '../../widget/custom/default_text.dart';
+import '../../widget/custom/white_container.dart';
 import 'package:location/location.dart' as locate;
-import '../../../widget/custom/custom_search_bar.dart';
-import '../../../widget/custom/default_text.dart';
 
+class MapScreen extends StatefulWidget {
+  const MapScreen({super.key});
+
+  @override
+  State<MapScreen> createState() => _MapScreenState();
+}
 
 class _MapScreenState extends State<MapScreen> {
   @override

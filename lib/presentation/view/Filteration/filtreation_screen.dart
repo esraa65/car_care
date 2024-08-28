@@ -1,3 +1,4 @@
+import 'package:car_care/app/routing/routes.dart';
 import 'package:car_care/core/constants/app_assets.dart';
 import 'package:car_care/core/constants/app_colors.dart';
 import 'package:car_care/core/constants/app_sizes.dart';
@@ -10,6 +11,7 @@ import 'package:car_care/presentation/widget/filteration/custom_rating.dart';
 import 'package:car_care/presentation/widget/filteration/custom_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import '../../widget/custom/default_text.dart';
 import '../../widget/filteration/custom_container_drop_down.dart';
 import '../../widget/filteration/custom_filteration_row.dart';
@@ -173,7 +175,9 @@ class FilterScreen extends StatelessWidget {
                         child: DefaultButton(
                           width: double.maxFinite,
                           title: "تقدم",
-                          onPressed: () {},
+                          onPressed: () {
+                            context.pushNamed(Routes.workShop);
+                          },
                         ),
                       ),
                     ],

@@ -17,6 +17,7 @@ import '../../widget/car_care/custom_container_row.dart';
 import '../../widget/car_care/custom_listview_container_service_body.dart';
 import '../../widget/custom/custom_app_bar.dart';
 import '../../widget/custom/default_button.dart';
+import '../../widget/custom/location_row_widget.dart';
 
 class CarCareScreen extends StatefulWidget {
   final String type;
@@ -65,6 +66,14 @@ class _CarCareScreenState extends State<CarCareScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
+                              const DefaultText(
+                                text: "الموقع",
+                                color: AppColors.teal08,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                              ),
+                              const LocationRowWidget(),
+                              height(16),
                               Row(
                                 children: [
                                   const Expanded(

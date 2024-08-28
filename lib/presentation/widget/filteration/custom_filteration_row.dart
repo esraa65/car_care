@@ -2,8 +2,6 @@ import 'package:car_care/core/constants/app_sizes.dart';
 import 'package:car_care/presentation/widget/custom/default_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import '../../../core/constants/app_assets.dart';
 import '../../../core/constants/app_colors.dart';
 
 class CustomFilterationRow extends StatelessWidget {

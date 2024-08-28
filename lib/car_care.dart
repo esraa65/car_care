@@ -24,7 +24,6 @@ class CarCare extends StatelessWidget {
                     latitude: "30.104732",
                     longitude: "31.378030",
                     carId: "32",
-                    carId: "41",
                     serviceId: "1",
                     type: "immediately",
                   )),

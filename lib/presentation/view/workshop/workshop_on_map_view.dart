@@ -1,6 +1,8 @@
 import 'package:car_care/core/constants/app_colors.dart';
 import 'package:car_care/presentation/cubit/workshop/cubit/nearestworkshop_cubit.dart';
 import 'package:car_care/presentation/widget/custom/custom_arrow_forward.dart';
+import 'package:car_care/presentation/widget/custom/default_button.dart';
+import 'package:car_care/presentation/widget/custom/white_container.dart';
 import 'package:car_care/presentation/widget/workshop/search_and_filter_icon.dart';
 import 'package:car_care/presentation/widget/workshop/switch_widget.dart';
 import 'package:car_care/presentation/widget/workshop/workshop_list_view_on_map.dart';
@@ -89,22 +91,27 @@ class _WorkshopOnMapViewState extends State<WorkshopOnMapView> {
                 ),
               ),
               Positioned(
-                bottom: 20,
+                bottom: 90,
                 left: 0,
                 right: 0,
                 child: state is NearestWorkshopSuccess
                     ? WorkshopListViewOnMap(workshops: state.workshops)
                     : const Center(child: CircularProgressIndicator()),
               ),
+              Positioned(
+                bottom: 0,
+                left: 0,
+                right: 0,
+                child: WhiteContainer(
+                    widget: DefaultButton(
+                        width: MediaQuery.sizeOf(context).width * 0.9,
+                        height: MediaQuery.sizeOf(context).height * 0.06,
+                        containerColor: AppColors.primary,
+                        title: 'احجز ',
+                        onPressed: () {})),
+              )
             ],
           );
-        },
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.my_location),
-        onPressed: () {
-          // Move to default center or adjust if needed
-          _mapController.move(_defaultCenter, 15.0);
         },
       ),
     );

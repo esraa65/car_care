@@ -14,7 +14,7 @@ class DioInterceptor implements Interceptor {
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    const token = "3|SvQRNuMkibudBUjUCoLWUxyZYRX9QK4dj2Xyqsn6da88837d";
+    const token = "17|NY6wbG6TR8Tr2OvhlYLMNRt3a9ig5BOAX7wvjQIi80a953d8";
     options.headers["Authorization"] = "Bearer $token";
     log("=======================================");
     log("Request");

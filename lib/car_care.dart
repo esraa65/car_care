@@ -14,20 +14,25 @@ class CarCare extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        // BlocProvider<NavigationBarCubit>(
-        //   create: (context) => NavigationBarCubit(),
-        // ),
-         BlocProvider<MapCubit>(
+        BlocProvider<MapCubit>(
           create: (context) => MapCubit()..getCuruntLocation(),
         ),
         BlocProvider<NearestWorkshopCubit>(
             create: (context) =>
                 NearestWorkshopCubit(nearestWorkshopRepo: getIt())
                   ..getNearestWorkshop(
-                    latitude: context.read<MapCubit>().currentLocation!.latitude.toString(),
-                    longitude: context.read<MapCubit>().currentLocation!.longitude.toString() ,
-                    carId: "32",
-                    serviceId: "2",
+                    latitude: context
+                        .read<MapCubit>()
+                        .currentLocation!
+                        .latitude
+                        .toString(),
+                    longitude: context
+                        .read<MapCubit>()
+                        .currentLocation!
+                        .longitude
+                        .toString(),
+                    carId: "36",
+                    serviceId: "3",
                     type: "immediately",
                   )),
         BlocProvider(create: (context) => AppCubit())

@@ -22,9 +22,6 @@ class _WorkshopOnMapViewState extends State<WorkshopOnMapView> {
   // Controller to move the camera on the map
   final MapController _mapController = MapController();
 
-  // Default center point for the map
-  final LatLng _defaultCenter = const LatLng(40.7128, -74.0060);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,8 +50,7 @@ class _WorkshopOnMapViewState extends State<WorkshopOnMapView> {
               FlutterMap(
                   mapController: _mapController,
                   options: MapOptions(
-                    initialCenter:
-                        markers.isNotEmpty ? markers[0].point : _defaultCenter,
+                    initialCenter: markers[0].point,
                     initialZoom: 13.0,
                   ),
                   children: [
@@ -112,13 +108,6 @@ class _WorkshopOnMapViewState extends State<WorkshopOnMapView> {
               )
             ],
           );
-        },
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.my_location),
-        onPressed: () {
-          // Move to default center or adjust if needed
-          _mapController.move(_defaultCenter, 15.0);
         },
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:car_care/app/routing/routes.dart';
 import 'package:car_care/core/constants/app_colors.dart';
 import 'package:car_care/core/constants/app_sizes.dart';
 import 'package:car_care/presentation/widget/custom/default_button.dart';
@@ -6,6 +7,7 @@ import 'package:car_care/presentation/widget/custom/white_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:go_router/go_router.dart';
 
 class GalleryWidget extends StatelessWidget {
   final List<String> pics;
@@ -73,7 +75,11 @@ class GalleryWidget extends StatelessWidget {
                     height: MediaQuery.sizeOf(context).height * 0.06,
                     containerColor: AppColors.primary,
                     title: 'احجز ',
-                    onPressed: () {}))
+                    onPressed: () {
+                          context.push(Routes.orderSummary);
+
+
+                    }))
           ])),
     );
   }

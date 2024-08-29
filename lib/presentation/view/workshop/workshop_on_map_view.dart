@@ -1,3 +1,4 @@
+import 'package:car_care/app/routing/routes.dart';
 import 'package:car_care/core/constants/app_colors.dart';
 import 'package:car_care/presentation/cubit/workshop/cubit/nearestworkshop_cubit.dart';
 import 'package:car_care/presentation/widget/custom/custom_arrow_forward.dart';
@@ -10,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:go_router/go_router.dart';
 
 class WorkshopOnMapView extends StatefulWidget {
   const WorkshopOnMapView({super.key});
@@ -104,7 +106,9 @@ class _WorkshopOnMapViewState extends State<WorkshopOnMapView> {
                         height: MediaQuery.sizeOf(context).height * 0.06,
                         containerColor: AppColors.primary,
                         title: 'احجز ',
-                        onPressed: () {})),
+                        onPressed: () {
+                          context.push(Routes.orderSummary);
+                        })),
               )
             ],
           );

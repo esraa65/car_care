@@ -15,3 +15,5 @@ class ChangeLocationToNewLocation extends MapState {}
 class ChangeCurrentLocationToStringSuccessState extends MapState {}
 
 class ChangeCurrentLocationToStringFailureState extends MapState {}
+
+class SrearchForLocationSuccessState extends MapState {}

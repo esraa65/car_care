@@ -47,6 +47,7 @@ class SearchAndFilterIcon extends StatelessWidget {
                   borderColor: AppColors.white,
                   borderRadius: 12,
                   hintText: 'بحث',
+                  // searchController: TextEditingController(),
                 ),
               ))
         ],

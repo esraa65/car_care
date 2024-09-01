@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 class CustomSearchBar extends StatelessWidget {
   final String? hintText;
   final double? borderRadius;
-    final Color? borderColor;
+  final Color? borderColor;
+
   const CustomSearchBar({
     super.key,
     this.hintText,
-    this.borderRadius, this.borderColor,
+    this.borderRadius,
+    this.borderColor,
   });
 
   @override
@@ -23,11 +25,11 @@ class CustomSearchBar extends StatelessWidget {
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(borderRadius ?? 0)),
-          borderSide:  BorderSide(color:borderColor?? AppColors.grey9c),
+          borderSide: BorderSide(color: borderColor ?? AppColors.grey9c),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(borderRadius ?? 0)),
-          borderSide:  BorderSide(color:borderColor?? AppColors.grey9c),
+          borderSide: BorderSide(color: borderColor ?? AppColors.grey9c),
         ),
         hintText: hintText,
         hintTextDirection: TextDirection.rtl,

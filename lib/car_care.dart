@@ -15,7 +15,11 @@ class CarCare extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<MapCubit>(
-          create: (context) => MapCubit()..getCuruntLocation(),
+          create: (context) {
+            final cubit = MapCubit();
+            cubit.getCuruntLocation();
+            return cubit;
+          },
         ),
         BlocProvider<NearestWorkshopCubit>(
             create: (context) =>

@@ -1,3 +1,4 @@
+import 'package:car_care/core/extensions/extensions.dart';
 import 'package:car_care/core/extensions/media_query.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -75,7 +76,7 @@ class _MapScreenState extends State<MapScreen> {
                       children: [
                         TileLayer(
                           urlTemplate:
-                              "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                              'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
                           subdomains: const ['a', 'b', 'c'],
                         ),
                         MarkerLayer(
@@ -110,10 +111,20 @@ class _MapScreenState extends State<MapScreen> {
                                 ),
                                 height(32),
                                 CustomSearchBar(
+                                  // onChanged: (query) {
+                                  //   cubit.searchLocationData(
+                                  //     cubit.searchController.text,
+                                  //     context,
+                                  //   );
+                                  // },
                                   hintText: cubit.address ??
                                       cubit.locationString ??
                                       "بحث",
-                                ),
+                                  //searchController: cubit.searchController,
+                                ).onTap(() {
+                                  cubit.searchLocationData(
+                                      cubit.searchController.text, context);
+                                }),
                               ],
                             ),
                           ),

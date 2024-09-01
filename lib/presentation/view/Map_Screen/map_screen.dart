@@ -111,16 +111,16 @@ class _MapScreenState extends State<MapScreen> {
                                 ),
                                 height(32),
                                 CustomSearchBar(
-                                  // onChanged: (query) {
-                                  //   cubit.searchLocationData(
-                                  //     cubit.searchController.text,
-                                  //     context,
-                                  //   );
-                                  // },
+                                  onSearchChanged: () {
+                                    cubit.searchLocationData(
+                                      cubit.searchController.text,
+                                      context,
+                                    );
+                                  },
                                   hintText: cubit.address ??
                                       cubit.locationString ??
                                       "بحث",
-                                  //searchController: cubit.searchController,
+                                  searchController: cubit.searchController,
                                 ).onTap(() {
                                   cubit.searchLocationData(
                                       cubit.searchController.text, context);

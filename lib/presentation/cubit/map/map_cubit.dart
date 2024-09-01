@@ -95,7 +95,7 @@ class MapCubit extends Cubit<MapState> {
   }
 
 //! Search Function
-  searchLocationData(String query, BuildContext context) async {
+  void searchLocationData(String query, BuildContext context) async {
     final url =
         'https://nominatim.openstreetmap.org/search?q=$query&format=json&limit=5';
 

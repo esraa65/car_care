@@ -1,5 +1,6 @@
 import 'package:car_care/app/routing/routes.dart';
 import 'package:car_care/core/constants/app_colors.dart';
+import 'package:car_care/domain/entity/workshops/nearest_work_shop_entity.dart';
 import 'package:car_care/presentation/cubit/workshop/cubit/nearestworkshop_cubit.dart';
 import 'package:car_care/presentation/widget/custom/custom_arrow_forward.dart';
 import 'package:car_care/presentation/widget/custom/default_button.dart';
@@ -33,7 +34,9 @@ class _WorkshopOnMapViewState extends State<WorkshopOnMapView> {
           List<Marker> markers = [];
 
           if (state is NearestWorkshopSuccess) {
-            markers = state.workshops
+            final filteredWorkshops = _getFilteredWorkshops(state.workshops);
+
+            markers =filteredWorkshops
                 .map((workshop) => Marker(
                       point: LatLng(double.parse(workshop.geoLat.toString()),
                           double.parse(workshop.geoLng.toString())),
@@ -78,7 +81,7 @@ class _WorkshopOnMapViewState extends State<WorkshopOnMapView> {
                 child: Row(
                   children: [
                     SearchAndFilterIcon(
-                      onSearchChanged: () {},
+                      onSearchChanged: _onSearchChanged,
                       searchController: _searchController,
                     ),
                   ],
@@ -97,7 +100,7 @@ class _WorkshopOnMapViewState extends State<WorkshopOnMapView> {
                 left: 0,
                 right: 0,
                 child: state is NearestWorkshopSuccess
-                    ? WorkshopListViewOnMap(workshops: state.workshops)
+                    ? WorkshopListViewOnMap(workshops: _getFilteredWorkshops(state.workshops))
                     : const Center(child: CircularProgressIndicator()),
               ),
               Positioned(
@@ -119,5 +122,25 @@ class _WorkshopOnMapViewState extends State<WorkshopOnMapView> {
         },
       ),
     );
+  }
+
+  void _onSearchChanged() {
+    setState(() {}); // Rebuild UI directly when the search input changes
+  }
+
+  List<WorkshopsEntity> _getFilteredWorkshops(List<WorkshopsEntity> workshops) {
+    final query = _searchController.text.toLowerCase();
+    if (query.isEmpty) {
+      return workshops;
+    }
+    return workshops
+        .where((workshop) => workshop.name!.toLowerCase().contains(query))
+        .toList();
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
   }
 }

@@ -169,7 +169,7 @@ class WorkshopListViewOnMap extends StatelessWidget {
                           context.push(Routes.orderSummary);
                         },
                       ),
-                    ], 
+                    ],
                   ),
                 ),
               );

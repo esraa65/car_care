@@ -23,6 +23,7 @@ class WorkshopOnMapView extends StatefulWidget {
 class _WorkshopOnMapViewState extends State<WorkshopOnMapView> {
   // Controller to move the camera on the map
   final MapController _mapController = MapController();
+  final TextEditingController _searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -71,12 +72,15 @@ class _WorkshopOnMapViewState extends State<WorkshopOnMapView> {
                       Navigator.pop(context);
                     },
                   )),
-              const Positioned(
+              Positioned(
                 top: 100,
                 right: 5,
                 child: Row(
                   children: [
-                    SearchAndFilterIcon(),
+                    SearchAndFilterIcon(
+                      onSearchChanged: () {},
+                      searchController: _searchController,
+                    ),
                   ],
                 ),
               ),

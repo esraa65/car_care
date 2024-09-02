@@ -1,3 +1,4 @@
+import 'package:car_care/core/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/constants/app_colors.dart';
@@ -7,8 +8,9 @@ import '../custom/default_text.dart';
 class CustomRowWorkshopDetailsWithIcon extends StatelessWidget {
   final String title;
   final String price;
+  final void Function()? onTap;
   const CustomRowWorkshopDetailsWithIcon(
-      {super.key, required this.title, required this.price});
+      {super.key, required this.title, required this.price, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,7 @@ class CustomRowWorkshopDetailsWithIcon extends StatelessWidget {
               child: const Icon(
                 Icons.delete_forever_outlined,
                 color: AppColors.red,
-              ),
+              ).onTap(onTap),
             ),
             width(8),
             DefaultText(

@@ -5,16 +5,22 @@ import 'package:car_care/core/network/dio/dio_interceptor.dart';
 import 'package:car_care/data/repo/car_care/car_care_repo_impl.dart';
 import 'package:car_care/data/repo/workshop/nearest_workshop_repo_impl.dart';
 import 'package:car_care/data/source/source_base/car_care/car_care_source.dart';
+import 'package:car_care/data/source/source_base/order_summary/order_summary_source.dart';
 import 'package:car_care/data/source/source_base/workshops/nearest_workshop_source.dart';
 import 'package:car_care/data/source/source_impl/car_car/car_care_source_impl.dart';
+import 'package:car_care/data/source/source_impl/order_summary/order_summary_source_impl.dart';
 import 'package:car_care/data/source/source_impl/workshops/nearest_workshop_source_impl.dart';
 import 'package:car_care/domain/repo/car_car/car_car_repo.dart';
+import 'package:car_care/domain/repo/order_summary/order_summary_repo.dart';
 import 'package:car_care/domain/repo/workshop/nearest_workshop_repo.dart';
 import 'package:car_care/presentation/cubit/car_care_cubit/car_care_cubit.dart';
+import 'package:car_care/presentation/cubit/order_summary/order_summary_cubit.dart';
 import 'package:car_care/presentation/cubit/workshop/cubit/nearestworkshop_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'data/repo/order_summary/order_summary_repo_impl.dart';
 
 GetIt getIt = GetIt.instance;
 SharedPreferences preferences = getIt<SharedPreferences>();
@@ -56,16 +62,21 @@ void _registerDataSources() {
   getIt.registerSingleton<CarCareSource>(CarCareSourceImpl(getIt()));
   getIt.registerSingleton<NearestWorkshopSource>(
       NearestWorkshopSourceImpl(baseDio: getIt()));
+  getIt.registerSingleton<OrderSummarySource>(
+    OrderSummarySourceImpl(getIt()),
+  );
 }
 
 void _registerRepos() {
   getIt.registerSingleton<CarCareRepo>(CarCareRepoImpl(getIt()));
   getIt.registerSingleton<NearestWorkshopRepo>(
       NearestWorkshopRepoImpl(nearestWorkshopSource: getIt()));
+  getIt.registerSingleton<OrderSummaryRepo>(OrderSummaryRepoImpl(getIt()));
 }
 
 void _registerFactory() {
   getIt.registerFactory<CarCareCubit>(() => CarCareCubit(getIt()));
   getIt.registerFactory<NearestWorkshopCubit>(
       () => NearestWorkshopCubit(nearestWorkshopRepo: getIt()));
+  getIt.registerFactory<OrderSummaryCubit>(() => OrderSummaryCubit(getIt()));
 }

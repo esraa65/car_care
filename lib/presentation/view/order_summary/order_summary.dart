@@ -2,7 +2,7 @@ import 'package:car_care/core/constants/app_colors.dart';
 import 'package:car_care/core/extensions/extensions.dart';
 import 'package:car_care/core/extensions/media_query.dart';
 import 'package:car_care/dependency_injection.dart';
-import 'package:car_care/domain/entity/order_summary/order_summary_entity.dart';
+import 'package:car_care/domain/entity/reserve_workshop/reserve_work_shop_entity.dart';
 import 'package:car_care/presentation/cubit/order_summary/order_summary_cubit.dart';
 import 'package:car_care/presentation/cubit/order_summary/order_summary_state.dart';
 import 'package:car_care/presentation/widget/custom/default_text.dart';
@@ -19,14 +19,14 @@ import '../../widget/order_summary/custom_work_shop_details.dart';
 import '../../widget/order_summary/custom_workshop_image_row.dart';
 
 class OrderSummary extends StatefulWidget {
-  const OrderSummary({super.key});
+  final ReserveWorkShopEntity entity;
+  const OrderSummary({super.key, required this.entity});
 
   @override
   State<OrderSummary> createState() => _OrderSummaryState();
 }
 
 class _OrderSummaryState extends State<OrderSummary> {
-  OrderSummaryEntity? entity;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -70,14 +70,14 @@ class _OrderSummaryState extends State<OrderSummary> {
                                   horizontal: 16, vertical: 24),
                               child: Column(
                                 children: [
-                                  const CustomWorkshopImageRow(
-                                      // workShopImage:' order.workshop.logo',
-                                      // workshopName: order.workshop.name,
-                                      ),
+                                  CustomWorkshopImageRow(
+                                    //! workShopImage:' order.workshop.logo',
+                                    workshopName: widget.entity.workshop.name,
+                                  ),
                                   height(32),
-                                  const CustomWorkShopDetails(
-                                    subtitle: "",
-                                    //${DateTime.parse(state.entity.services!.first.createdAt!.toString()).toLocal().toString().split(' ')[0]} ${DateTime.parse(state.entity.services!.first.createdAt!.toString()).toLocal().toString().split(' ')[1]}
+                                  CustomWorkShopDetails(
+                                    subtitle: widget.entity.reservationDate
+                                        .toString(),
                                     title: "تاريخ الحجز",
                                   ),
                                   height(16),
@@ -87,43 +87,40 @@ class _OrderSummaryState extends State<OrderSummary> {
                                   ),
                                   height(16),
                                   CustomWorkShopDetails(
-                                    subtitle:
-                                        entity?.services?.first.arName! ?? "",
+                                    subtitle: widget.entity.services.first.name,
                                     title: "فئة الخدمة",
                                   ),
                                   height(16),
                                   const Divider(),
                                   height(16),
                                   SizedBox(
-                                    height: 40,
-                                    //state.entity.services!.length * 40 +
-                                    //     (state.entity.services!.length - 1),
+                                    height: widget.entity.services.length * 40 +
+                                        (widget.entity.services.length - 1),
                                     width: double.infinity,
                                     child: ListView.separated(
                                       itemBuilder: (ctx, index) {
                                         return CustomRowWorkshopDetailsWithIcon(
-                                            title: "",
-                                            //order.services[index].type
-                                            price: "",
-                                            // "order.services[index].pivot.price SAR"
+                                            title: widget
+                                                .entity.services[index].name,
+                                            price:
+                                                "${widget.entity.services[index].price} SAR",
                                             onTap: () {
-                                              //   setState(() {
-                                              //     order.services.removeAt(index);
-                                              //   });
+                                              setState(() {
+                                                widget.entity.services
+                                                    .removeAt(index);
+                                              });
                                             });
                                       },
                                       separatorBuilder: (ctx, index) =>
                                           height(16),
-                                      itemCount: 1,
-                                      // state.entity.services!.length
+                                      itemCount: widget.entity.services.length,
                                     ),
                                   ),
                                   height(16),
                                   const Divider(),
                                   height(16),
-                                  const CustomTotalRow(price: ""
-                                      //state.entity.services!.first.price} SAR
-                                      ),
+                                  CustomTotalRow(
+                                      price: "${widget.entity.totalPrice} SAR"),
                                 ],
                               ),
                             ),

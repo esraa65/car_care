@@ -5,5 +5,5 @@ abstract class Routes {
   static const String workshopOnMapView = 'workshopOnMapView';
   static const String mapScreen = '/mapScreen';
   static const String filteration = '/filterationScreen';
-  static const String orderSummary = '/orderSummary';
+  static const String orderSummary = 'orderSummary';
 }

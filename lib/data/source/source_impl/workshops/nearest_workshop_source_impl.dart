@@ -12,14 +12,14 @@ class NearestWorkshopSourceImpl implements NearestWorkshopSource {
   Future<Map<String, dynamic>> nearestWorkshops({
     required String latitude,
     required String longitude,
-    required String carId,
+    //required String carId,
     required String serviceId,
     required String type,
   }) async {
     FormData formData = FormData.fromMap({
       "latitude": latitude,
       "longitude": longitude,
-      "car_id": carId,
+      // "car_id": carId,
       "service_ids[]": serviceId,
       "type": type
     });

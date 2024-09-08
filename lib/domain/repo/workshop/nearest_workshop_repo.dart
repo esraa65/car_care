@@ -7,10 +7,11 @@ abstract class NearestWorkshopRepo {
   Future<Either<Failure, List<WorkshopsEntity>>> nearestWorkshops({
     required String latitude,
     required String longitude,
-    required String carId,
+    //  required String carId,
     required String serviceId,
     required String type,
   });
 
-  Future<Either<Failure, WorkshopDetailsEntity>> workshopById({required String id});
+  Future<Either<Failure, WorkshopDetailsEntity>> workshopById(
+      {required String id});
 }

@@ -4,6 +4,7 @@ import 'package:car_care/presentation/view/Map_Screen/map_screen.dart';
 import 'package:car_care/presentation/view/workshop/workshop_view.dart';
 import 'package:car_care/presentation/view/workshop_details/workshop_details_view.dart';
 import 'package:go_router/go_router.dart';
+import '../../domain/entity/reserve_workshop/reserve_work_shop_entity.dart';
 import '../../presentation/view/Car_Care/car_care_screen.dart';
 import '../../presentation/view/Filteration/filtreation_screen.dart';
 import '../../presentation/view/order_summary/order_summary.dart';
@@ -40,8 +41,12 @@ final GoRouter router = GoRouter(
       builder: (context, state) => const FilterScreen(),
     ),
     GoRoute(
-      path: Routes.orderSummary,
-      builder: (context, state) => const OrderSummary(),
+      path: "/orderSummary",
+      name: Routes.orderSummary,
+      builder: (context, state) {
+        final model = state.extra as ReserveWorkShopEntity;
+        return OrderSummary(entity: model);
+      },
     ),
   ],
 );

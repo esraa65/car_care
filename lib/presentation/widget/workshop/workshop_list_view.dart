@@ -1,13 +1,17 @@
 import 'package:car_care/app/routing/routes.dart';
 import 'package:car_care/core/constants/app_colors.dart';
 import 'package:car_care/core/constants/app_sizes.dart';
+import 'package:car_care/dependency_injection.dart';
 import 'package:car_care/domain/entity/workshops/nearest_work_shop_entity.dart';
 import 'package:car_care/presentation/cubit/workshop/cubit/nearestworkshop_cubit.dart';
+import 'package:car_care/presentation/cubit/workshop/reserve_workshop/reserve_workshop_cubit.dart';
+import 'package:car_care/presentation/widget/custom/custom_flutter_show_toast.dart';
 import 'package:car_care/presentation/widget/custom/default_button.dart';
 import 'package:car_care/presentation/widget/custom/default_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import '../../cubit/workshop/reserve_workshop/resrve_workshop_state.dart';
 
 class WorkshopListView extends StatelessWidget {
   final List<WorkshopsEntity> workshops;
@@ -178,15 +182,45 @@ class WorkshopListView extends StatelessWidget {
                               ],
                             ),
                             height(6),
-                            DefaultButton(
-                              width: MediaQuery.sizeOf(context).width * 0.3,
-                              height: MediaQuery.sizeOf(context).height * 0.05,
-                              radius: 24,
-                              containerColor: AppColors.primary,
-                              title: 'حجز',
-                              onPressed: () {
-                                context.push(Routes.orderSummary);
-                              },
+                            BlocProvider(
+                              create: (context) =>
+                                  ReserveWorkshopCubit(getIt()),
+                              child: BlocConsumer<ReserveWorkshopCubit,
+                                  ResrveWorkshopState>(
+                                listener: (context, state) {
+                                  if (state is ReserveWorkshopLoading) {
+                                    const Center(
+                                      child: CircularProgressIndicator(),
+                                    );
+                                  } else if (state is ReserveWorkshopFailure) {
+                                    showToast(AppColors.primary,
+                                        msg: state.message);
+                                  } else if (state is ReserveWorkshopSuccess) {
+                                    showToast(AppColors.black,
+                                        msg: "تم انشاء حجز جديد ");
+                                    context.pushNamed(
+                                      Routes.orderSummary,
+                                      extra: state.reserve,
+                                    );
+                                  }
+                                },
+                                builder: (context, state) {
+                                  final cubit =
+                                      context.read<ReserveWorkshopCubit>();
+                                  return DefaultButton(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 0.3,
+                                    height: MediaQuery.sizeOf(context).height *
+                                        0.05,
+                                    radius: 24,
+                                    containerColor: AppColors.primary,
+                                    title: 'حجز',
+                                    onPressed: () {
+                                      cubit.reserve();
+                                    },
+                                  );
+                                },
+                              ),
                             )
                           ],
                         ),

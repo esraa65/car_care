@@ -16,6 +16,7 @@ import 'package:go_router/go_router.dart';
 import '../../widget/car_care/custom_container_row.dart';
 import '../../widget/car_care/custom_listview_container_service_body.dart';
 import '../../widget/custom/custom_app_bar.dart';
+import '../../widget/custom/custom_flutter_show_toast.dart';
 import '../../widget/custom/default_button.dart';
 import '../../widget/custom/location_row_widget.dart';
 
@@ -149,7 +150,10 @@ class _CarCareScreenState extends State<CarCareScreen> {
                         widget: DefaultButton(
                           title: 'استمرار',
                           onPressed: () {
-                            context.push(Routes.mapScreen);
+                            cubit.isChecked
+                                ? context.push(Routes.mapScreen)
+                                : showToast(AppColors.black,
+                                    msg: "الرجاء اختيار خدمه اولا ");
                           },
                           width: double.infinity,
                         ),

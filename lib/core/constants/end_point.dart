@@ -5,4 +5,5 @@ abstract class EndPoint {
   static const String workshopById = 'client/workshop/show/';
   static const String orderSummary = 'client/workshop/orders/show/36';
   static const String checkout = 'client/workshop/checkout';
+  static const String reserve = 'client/workshop/reservation';
 }

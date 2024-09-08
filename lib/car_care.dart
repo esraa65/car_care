@@ -25,17 +25,9 @@ class CarCare extends StatelessWidget {
             create: (context) =>
                 NearestWorkshopCubit(nearestWorkshopRepo: getIt())
                   ..getNearestWorkshop(
-                    latitude: context
-                        .read<MapCubit>()
-                        .currentLocation!
-                        .latitude
-                        .toString(),
-                    longitude: context
-                        .read<MapCubit>()
-                        .currentLocation!
-                        .longitude
-                        .toString(),
-                    carId: "35",
+                    latitude: "30.104732",
+                    longitude: "31.378030",
+                    //carId: "35",
                     serviceId: "2",
                     type: "immediately",
                   )),

@@ -7,24 +7,26 @@ import 'package:equatable/equatable.dart';
 part 'nearestworkshop_state.dart';
 
 class NearestWorkshopCubit extends Cubit<NearestWorkshopState> {
+  final NearestWorkshopRepo nearestWorkshopRepo;
+
   NearestWorkshopCubit({required this.nearestWorkshopRepo})
       : super(NearestWorkshopInitial());
-  final NearestWorkshopRepo nearestWorkshopRepo;
 
   Future<void> getNearestWorkshop({
     required String latitude,
     required String longitude,
-    required String carId,
+    //  required String carId,
     required String serviceId,
     required String type,
   }) async {
     emit(NearestWorkshopLoading());
     final response = await nearestWorkshopRepo.nearestWorkshops(
-        latitude: latitude,
-        longitude: longitude,
-        carId: carId,
-        serviceId: serviceId,
-        type: type);
+      latitude: latitude,
+      longitude: longitude,
+      //  carId: carId,
+      serviceId: serviceId,
+      type: type,
+    );
     response.fold(
       (failure) => emit(NearestWorkshopFailure(message: failure.message)),
       (nearestWorkshops) =>
@@ -40,8 +42,10 @@ class NearestWorkshopCubit extends Cubit<NearestWorkshopState> {
     response.fold(
       (failure) => emit(
           WorkshopByIdFailure(message: failure.message, workshops: workshops)),
-      (workshopDetailsEntity) => emit(WorkshopByIdSuccess(
-          workshops: workshops, workshopDetailsEntity: workshopDetailsEntity)),
+      (workshopDetailsEntity) => emit(
+        WorkshopByIdSuccess(
+            workshops: workshops, workshopDetailsEntity: workshopDetailsEntity),
+      ),
     );
   }
 }

@@ -12,7 +12,7 @@ class NearestWorkshopRepoImpl implements NearestWorkshopRepo {
   Future<Either<Failure, List<WorkshopsEntity>>> nearestWorkshops({
     required String latitude,
     required String longitude,
-    required String carId,
+    // required String carId,
     required String serviceId,
     required String type,
   }) async {
@@ -20,7 +20,7 @@ class NearestWorkshopRepoImpl implements NearestWorkshopRepo {
       final response = await nearestWorkshopSource.nearestWorkshops(
           latitude: latitude,
           longitude: longitude,
-          carId: carId,
+          //  carId: carId,
           serviceId: serviceId,
           type: type);
       if (!(response['success'] as bool)) {
@@ -36,15 +36,16 @@ class NearestWorkshopRepoImpl implements NearestWorkshopRepo {
   }
 
   @override
-  Future<Either<Failure, WorkshopDetailsEntity>> workshopById({required String id})async {
+  Future<Either<Failure, WorkshopDetailsEntity>> workshopById(
+      {required String id}) async {
     try {
       final response = await nearestWorkshopSource.workshopById(id: id);
       if (!(response['success'] as bool)) {
         return Left(ServerFailure(response['message'] as String));
       }
-      return Right(WorkshopDetailsEntity.fromJson(response['data'] as Map<String, dynamic>));
-
-    }catch(e){
+      return Right(WorkshopDetailsEntity.fromJson(
+          response['data'] as Map<String, dynamic>));
+    } catch (e) {
       return Left(ServerFailure(e.toString()));
     }
   }

@@ -4,4 +4,5 @@ abstract class EndPoint {
   static const String nearest = 'client/workshop/nearest';
   static const String workshopById = 'client/workshop/show/';
   static const String orderSummary = 'client/workshop/orders/show/36';
+  static const String checkout = 'client/workshop/checkout';
 }

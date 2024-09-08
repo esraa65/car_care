@@ -35,8 +35,8 @@ class CarCare extends StatelessWidget {
                         .currentLocation!
                         .longitude
                         .toString(),
-                    carId: "44",
-                    serviceId: "3",
+                    carId: "35",
+                    serviceId: "2",
                     type: "immediately",
                   )),
         BlocProvider(create: (context) => AppCubit())

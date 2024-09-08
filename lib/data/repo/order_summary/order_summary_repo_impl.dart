@@ -12,9 +12,23 @@ class OrderSummaryRepoImpl implements OrderSummaryRepo {
 
   OrderSummaryRepoImpl(this.source);
   @override
-  Future<Either<Failure, OrderSummaryEntity>> orderSummary() async {
+  Future<Either<Failure, OrderSummaryEntity>> orderSummary({
+    required String workshopId,
+    required String reservationDate,
+    required String type,
+    required String serviceIds,
+    String? promoCode,
+    String? carId,
+  }) async {
     try {
-      final response = await source.orderSummary();
+      final response = await source.orderSummary(
+        reservationDate: reservationDate,
+        serviceIds: serviceIds,
+        type: type,
+        workshopId: workshopId,
+        carId: carId!,
+        promoCode: promoCode!,
+      );
       if (!(response['success'] as bool)) {
         return Left(ServerFailure(response['message'] as String));
       }

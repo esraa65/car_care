@@ -1,113 +1,87 @@
 import 'package:equatable/equatable.dart';
 
 class OrderSummaryService with EquatableMixin {
-  final int id;
-  final String? createdAt;
-  final String? updatedAt;
-  final String type;
-  final int isMainService;
-  final int requireCarBrand;
-  final String enName;
-  final String enDescription;
-  final String arName;
-  final String arDescription;
-  final int isActive;
-  final int? parentId;
-  final int hasProducts;
-  final int? categoryId;
-  final Pivot pivot;
+  String? enName;
+  String? arName;
+  String? type;
+  int? price;
+  DateTime? createdAt;
+  DateTime? updatedAt;
+  int? estimatedTime;
+  String? estimatedTimeType;
 
-  const OrderSummaryService({
-    required this.id,
+  OrderSummaryService({
+    this.enName,
+    this.arName,
+    this.type,
+    this.price,
     this.createdAt,
     this.updatedAt,
-    required this.type,
-    required this.isMainService,
-    required this.requireCarBrand,
-    required this.enName,
-    required this.enDescription,
-    required this.arName,
-    required this.arDescription,
-    required this.isActive,
-    this.parentId,
-    required this.hasProducts,
-    this.categoryId,
-    required this.pivot,
+    this.estimatedTime,
+    this.estimatedTimeType,
   });
 
   @override
   List<Object?> get props => [
-        id,
+        enName,
+        arName,
+        type,
+        price,
         createdAt,
         updatedAt,
-        type,
-        isMainService,
-        requireCarBrand,
-        enName,
-        enDescription,
-        arName,
-        arDescription,
-        isActive,
-        parentId,
-        hasProducts,
-        categoryId,
-        pivot,
+        estimatedTime,
+        estimatedTimeType,
       ];
+
   factory OrderSummaryService.fromJson(Map<String, dynamic> json) {
     return OrderSummaryService(
-      id: json['id'],
-      createdAt: json['created_at'],
-      updatedAt: json['updated_at'],
-      type: json['type'],
-      isMainService: json['is_main_service'],
-      requireCarBrand: json['require_car_brand'],
       enName: json['en_name'],
-      enDescription: json['en_description'],
       arName: json['ar_name'],
-      arDescription: json['ar_description'],
-      isActive: json['is_active'],
-      parentId: json['parent_id'],
-      hasProducts: json['has_products'],
-      categoryId: json['category_id'],
-      pivot: Pivot.fromJson(json['pivot']),
+      type: json['type'],
+      price: json['price'],
+      createdAt: DateTime.parse(json['created_at']),
+      updatedAt: DateTime.parse(json['updated_at']),
+      estimatedTime: json['astimated_time'],
+      estimatedTimeType: json['astimated_time_type'],
     );
   }
 }
 
-class Pivot extends Equatable {
-  final int orderId;
-  final int serviceId;
-  final String status;
-  final double price;
-  final int astimatedTime;
-  final String astimatedTimeType;
+class Pivot with EquatableMixin {
+  int? workShopId;
+  int? serviceId;
+  int? price;
+  int? astimatedTime;
+  String? astimatedTimeType;
+  String? requiredBrands;
 
-  const Pivot({
-    required this.orderId,
-    required this.serviceId,
-    required this.status,
-    required this.price,
-    required this.astimatedTime,
-    required this.astimatedTimeType,
+  Pivot({
+    this.workShopId,
+    this.serviceId,
+    this.price,
+    this.astimatedTime,
+    this.astimatedTimeType,
+    this.requiredBrands,
   });
 
   @override
   List<Object?> get props => [
-        orderId,
+        workShopId,
         serviceId,
-        status,
         price,
         astimatedTime,
         astimatedTimeType,
+        requiredBrands
       ];
+
   factory Pivot.fromJson(Map<String, dynamic> json) {
     return Pivot(
-      orderId: json['order_id'],
-      serviceId: json['service_id'],
-      status: json['status'],
-      price: json['price'].toDouble(),
-      astimatedTime: json['astimated_time'],
-      astimatedTimeType: json['astimated_time_type'],
+      workShopId: json['work_shop_id'] as int?,
+      serviceId: json['service_id'] as int?,
+      price: json['price'] as int?,
+      astimatedTime: json['astimated_time'] as int?,
+      astimatedTimeType: json['astimated_time_type'] as String?,
+      requiredBrands: json['required_brands'] as Null,
     );
   }
 }

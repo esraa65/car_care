@@ -1,3 +1,4 @@
+import 'package:car_care/app/routing/routes.dart';
 import 'package:car_care/core/constants/app_colors.dart';
 import 'package:car_care/core/constants/app_sizes.dart';
 import 'package:car_care/domain/entity/workshops/nearest_work_shop_entity.dart';
@@ -12,6 +13,7 @@ import 'package:car_care/presentation/widget/workshop/switch_widget.dart';
 import 'package:car_care/presentation/widget/workshop/workshop_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class WorkshopView extends StatefulWidget {
   const WorkshopView({super.key});
@@ -75,7 +77,8 @@ class _WorkshopViewState extends State<WorkshopView> {
                 return const Center(child: CircularProgressIndicator());
               }
               if (state is NearestWorkshopSuccess) {
-                final filteredWorkshops = _getFilteredWorkshops(state.workshops);
+                final filteredWorkshops =
+                    _getFilteredWorkshops(state.workshops);
                 return WorkshopListView(workshops: filteredWorkshops);
               } else {
                 return const Center(child: CircularProgressIndicator());
@@ -89,7 +92,9 @@ class _WorkshopViewState extends State<WorkshopView> {
               height: MediaQuery.sizeOf(context).height * 0.06,
               containerColor: AppColors.primary,
               title: 'اقترح علي مركز صيانة',
-              onPressed: () {},
+              onPressed: () {
+                context.push(Routes.orderSummary);
+              },
             ),
           ),
         ],

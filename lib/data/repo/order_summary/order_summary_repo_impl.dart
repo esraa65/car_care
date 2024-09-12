@@ -30,7 +30,7 @@ class OrderSummaryRepoImpl implements OrderSummaryRepo {
         promoCode: promoCode!,
       );
       if (!(response['success'] as bool)) {
-        return Left(ServerFailure(response['message'] as String));
+        // return Left(ServerFailure(response['message'] as String));
       }
       return Right(
         OrderSummaryEntity.fromJson(response['data']),

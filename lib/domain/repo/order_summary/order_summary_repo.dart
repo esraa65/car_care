@@ -7,9 +7,9 @@ abstract class OrderSummaryRepo {
   Future<Either<Failure, OrderSummaryEntity>> orderSummary({
     required String workshopId,
     required String reservationDate,
-    String carId,
+    String? carId,
     required String type,
     required String serviceIds,
-    String promoCode,
+    String? promoCode,
   });
 }

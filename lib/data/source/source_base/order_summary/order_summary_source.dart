@@ -4,7 +4,7 @@ abstract class OrderSummarySource {
     required String reservationDate,
     required String type,
     required String serviceIds,
-    String promoCode,
-    String carId,
+    String? promoCode,
+    String? carId,
   });
 }

@@ -27,9 +27,6 @@ class OrderSummaryCubit extends Cubit<OrderSummaryState> {
     response.fold((failure) {
       emit(OrderSummaryFailuireState(failure.message));
     }, (order) {
-      print("=================${order.totalPrice}");
-      print("=================${order.hasPromoCode}");
-      print("=================${order.originalPrice}");
       emit(OrderSummarySuccessState(order));
     });
   }

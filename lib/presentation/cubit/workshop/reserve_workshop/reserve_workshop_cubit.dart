@@ -11,7 +11,7 @@ class ReserveWorkshopCubit extends Cubit<ResrveWorkshopState> {
     emit(ReserveWorkshopLoading());
 
     final response = await repo.reserveWork(
-      workshopid: "21",
+      workshopid: "1",
       serviceId: "2",
       type: "immediately",
       paymentType: "cash",

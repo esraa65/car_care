@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/constants/app_sizes.dart';
 import '../../widget/custom/custom_app_bar.dart';
+import '../../widget/custom/custom_flutter_show_toast.dart';
 import '../../widget/custom/default_button.dart';
 import '../../widget/order_summary/custom_row_workshop_details_with_icon.dart';
 import '../../widget/order_summary/custom_total_row.dart';
@@ -93,7 +94,15 @@ class _OrderSummaryState extends State<OrderSummary> {
                           height(16),
                           const Divider(),
                           height(16),
-                          BlocBuilder<OrderSummaryCubit, OrderSummaryState>(
+                          BlocConsumer<OrderSummaryCubit, OrderSummaryState>(
+                            listener: (context, state) {
+                              if (state is OrderSummaryFailuireState) {
+                                showToast(
+                                  msg: state.errorMessage,
+                                  AppColors.primary,
+                                );
+                              }
+                            },
                             builder: (context, state) {
                               if (state is OrderSummarySuccessState) {
                                 return CustomTotalRow(
@@ -130,11 +139,6 @@ class _OrderSummaryState extends State<OrderSummary> {
                             Expanded(
                               child: Builder(builder: (context) {
                                 return TextFormField(
-                                  // onChanged: (val) {
-                                  //   setState(() {
-                                  //     cubit.promoCode = val;
-                                  //   });
-                                  // },
                                   controller: cubit.promocodeController,
                                   decoration: InputDecoration(
                                     hintText: "الرمز الترويجى",
@@ -168,9 +172,6 @@ class _OrderSummaryState extends State<OrderSummary> {
                               ),
                             ).onTap(() {
                               cubit.orderSummary();
-                              // cubit.applyPromoCode(
-                              //     widget.entity.totalPrice,
-                              //     state.entity.hasPromoCode!);
                             }),
                           ],
                         ),
